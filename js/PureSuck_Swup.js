@@ -575,7 +575,7 @@
                     containers: ['#swup'],
                     ignore: function ignore(linkEl) {
                         if (!linkEl) return true;
-                        if (linkEl.closest('#comments, .main-lastinfo, .header-credit')) return true;
+                        if (linkEl.closest('#comments, .main-lastinfo')) return true;
                         const href = linkEl.getAttribute('href') || '';
                         return href.indexOf('#') === 0;
                     }

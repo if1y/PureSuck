@@ -159,11 +159,6 @@
                 <div class="nav header-item left-side-custom-code">
                     <?= $this->options->leftSideCustomCode ?: ''; ?>
                 </div>
-                <div class="nav header-item header-credit">
-                    Powered by Typecho
-                    <br>
-                    <a href="https://github.com/MoXiaoXi233/PureSuck-theme" target="_blank">Theme PureSuck</a>
-                </div>
                 <nav class="nav header-item header-nav" aria-label="站点主导航栏">
                     <span class="nav-item<?= $this->is('index') ? ' nav-item-current' : ''; ?>">
                         <a href="<?= $this->options->siteUrl(); ?>" title="首页">
