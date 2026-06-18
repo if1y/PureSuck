@@ -1527,9 +1527,7 @@ strong {
 }
 
 .nav {
-	color: var(--nav-text-color);
-	text-transform: uppercase;
-	letter-spacing: 2px
+	color: var(--nav-text-color)
 }
 
 .nav-item {
