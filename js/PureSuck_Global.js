@@ -454,11 +454,83 @@
         };
     })();
 
+    const descriptionLinebreak = (function () {
+        let resizeBound = false;
+        let resizeTimer = 0;
+
+        function getElement(root) {
+            const scope = root && root.querySelector ? root : document;
+            return scope.querySelector('.header-about') || document.querySelector('.header-about');
+        }
+
+        function normalizeText(text) {
+            return String(text || '').replace(/\s*<br\s*\/?>\s*/gi, '').replace(/\s+/g, ' ').trim();
+        }
+
+        function measureShouldBreak(el, rawText) {
+            const originalHtml = el.innerHTML;
+            const originalInlineWhiteSpace = el.style.whiteSpace;
+
+            el.textContent = rawText;
+            el.style.whiteSpace = 'nowrap';
+            const shouldBreak = el.scrollWidth > el.clientWidth;
+            el.style.whiteSpace = originalInlineWhiteSpace;
+            el.innerHTML = originalHtml;
+
+            return shouldBreak;
+        }
+
+        function render(el, rawText, shouldBreak) {
+            if (shouldBreak) {
+                el.innerHTML = rawText.replace(/([，。；！？、])/g, '$1<br>');
+                return;
+            }
+            el.textContent = rawText;
+        }
+
+        function applyBreaks(root) {
+            const el = getElement(root);
+            if (!el) return;
+
+            const rawText = normalizeText(el.textContent);
+            if (!rawText) return;
+
+            render(el, rawText, measureShouldBreak(el, rawText));
+        }
+
+        function bindResizeListener() {
+            if (resizeBound) return;
+            resizeBound = true;
+
+            window.addEventListener('resize', function () {
+                if (resizeTimer) {
+                    clearTimeout(resizeTimer);
+                }
+
+                resizeTimer = window.setTimeout(function () {
+                    applyBreaks(document);
+                }, 180);
+            }, { passive: true });
+        }
+
+        return {
+            init: function init(root) {
+                applyBreaks(root);
+                bindResizeListener();
+            },
+            update: function update(root) {
+                applyBreaks(root);
+            }
+        };
+    })();
+
+    descriptionLinebreak.init(document);
     Theme.init();
     PS.theme = PS.theme && typeof PS.theme === 'object' ? PS.theme : {};
     PS.theme.set = Theme.set;
     PS.theme.toggle = Theme.toggle;
     PS.nav = NavIndicator;
+    PS.description = descriptionLinebreak;
 
     window.setTheme = Theme.set;
     window.toggleTheme = Theme.toggle;
@@ -483,6 +555,7 @@
 
             NavIndicator.init();
             NavIndicator.update();
+            descriptionLinebreak.init(root);
         }
     });
 })(window, document);
