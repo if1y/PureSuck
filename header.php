@@ -151,10 +151,10 @@
                     </span>
                 </a>
                 <div class="header-title">
-                    <?= $this->options->titleIndex(); ?>
+                    <?= $this->options->title(); ?>
                 </div>
                 <p itemprop="description" class="header-item header-about">
-                    <?= $this->options->customDescription ?: 'ワクワク'; ?>
+                    <?= $this->options->description ?: 'ワクワク'; ?>
                 </p>
                 <div class="nav header-item left-side-custom-code">
                     <?= $this->options->leftSideCustomCode ?: ''; ?>
