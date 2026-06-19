@@ -65,6 +65,8 @@ html {
 	scroll-behavior: smooth;
 	text-autospace: normal;
 	/* After Chrome 140+++ */
+	font-family: "PingFang SC", "Hiragino Sans GB", "Source Han Sans CN", "Segoe UI", Helvetica, Arial, -apple-system, system-ui, sans-serif;
+	color: var(--text-color);
 }
 
 body {
@@ -1451,28 +1453,18 @@ li:before {
 
 body,
 .post--cover .post-body .post-wrapper>p:first-child,
-.comment-title,
-h1,
+.comment-title {
+	font-weight: 400;
+}
+
 h2,
 h3,
 h4,
 h5,
-h6 {
-	font-family: "Open Sans", -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Helvetica, Arial, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", SimSun, sans-serif;
-	font-weight: 400;
-	color: var(--text-color);
-}
-
+h6,
 b,
 strong {
 	font-weight: 600;
-	background-image: linear-gradient(to top,
-		color-mix(in srgb, var(--themecolor) 35%, transparent) 0%,
-		transparent 100%
-	);
-	background-size: 100% 45%;
-	background-repeat: no-repeat;
-	background-position: 0 88%;
 }
 
 .avatar,
