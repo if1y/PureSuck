@@ -113,6 +113,7 @@ figcaption {
 	color: var(--text2-color);
 	font-size: 0.75rem;
 	margin-top: 0.5em;
+	margin-bottom: 0.5em;
 }
 
 object {
@@ -2547,8 +2548,13 @@ input:-webkit-autofill:active {
 	width: 50%;
 }
 
-/* 超链接颜色 **/
+/* 正文及 PicGrid 画廊图片圆角 */
+.post-content img,
+.pic-grid img {
+	border-radius: 0.5rem;
+}
 
+/* 超链接颜色 **/
 .post-content a {
 	color: var(--themecolor);
 }
