@@ -18,6 +18,27 @@ function psGetRenderOptionFingerprint()
     return md5(json_encode($fingerprint));
 }
 
+// 正文标题降级
+function parseHeadings($content)
+{
+    if (!is_string($content) || $content === '') {
+        return (string)$content;
+    }
+
+    // 同时处理开闭标签：h1→h2, h2→h3, h3→h4, h4→h5, h5→h6, h6 不变
+    $content = preg_replace_callback(
+        '/<(\/?h)([1-6])(\b[^>]*>)/i',
+        function ($m) {
+            $level = (int)$m[2];
+            $newLevel = min($level + 1, 6);
+            return '<' . $m[1] . $newLevel . $m[3];
+        },
+        $content
+    );
+
+    return $content;
+}
+
 function psRenderContentPipeline($content)
 {
     $steps = [
@@ -29,6 +50,7 @@ function psRenderContentPipeline($content)
         'wrapTables',
         'addZoomableToImages',
         'parseOwOcodes',
+        'parseHeadings',
         'generateToc'
     ];
 
@@ -85,7 +107,7 @@ function renderPostContent($content)
     $version = defined('PS_THEME_VERSION') ? PS_THEME_VERSION : '0';
     $optionFingerprint = psGetRenderOptionFingerprint();
     $contentHash = md5($source);
-    $cacheKey = 'render_post_content:v7:' . $version . ':' . $contentHash . ':' . $optionFingerprint;
+    $cacheKey = 'render_post_content:v8:' . $version . ':' . $contentHash . ':' . $optionFingerprint;
     $ttl = 6 * 3600;
 
     $cache = getCache($cacheKey, $ttl, 'render');
