@@ -739,11 +739,6 @@ body>.wrapper {
 		max-width: 530px
 	}
 
-
-	.header-nav {
-		padding-top: 24px
-	}
-
 	.main {
 		padding-top: 16px;
 		padding-bottom: 32px
@@ -915,9 +910,17 @@ body>.wrapper {
 	margin-left: auto
 }
 
+.header-about {
+	margin-bottom: 2px
+}
+
+.left-side-custom-code {
+	line-height: 2.5;
+	margin-bottom: 2px
+}
 
 .header-nav {
-	padding-top: 16px;
+	margin-bottom: 2px;
 	position: relative
 }
 
