@@ -177,7 +177,7 @@
                     <!--结束显示页面-->
                 </nav>
                 <div class="theme-toggle-container">
-                    <button class="theme-toggle" onclick="toggleTheme()" aria-label="切换主题">
+                    <button class="theme-toggle" onclick="toggleTheme()" aria-label="切换主题" title="切换主题">
                         <span id="theme-icon"></span>
                     </button>
                 </div>
