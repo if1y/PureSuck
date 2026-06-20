@@ -73,43 +73,9 @@
     <link rel="stylesheet" href="<?php $this->options->themeUrl('/css/animations/index.css'); ?>">
     <link rel="stylesheet" href="<?php $this->options->themeUrl('/css/OwO.min.css'); ?>">
 
-    <!-- 标题线条 -->
-    <?php if ($this->options->postTitleAfter != 'off'): ?>
-        <style>
-            .post-title::after {
-                content: "";
-                bottom:
-                    <?php echo $this->options->postTitleAfter == 'wavyLine' ? '-5px' : '5px'; ?>
-                ;
-                left:
-                    <?php echo '0'; ?>
-                ;
-                <?php if ($this->options->postTitleAfter == 'boldLine'): ?>
-                    width:
-                        <?php echo '58px'; ?>
-                    ;
-                    height:
-                        <?php echo '11px'; ?>
-                    ;
-                <?php elseif ($this->options->postTitleAfter == 'wavyLine'): ?>
-                    width:
-                        <?php echo '106px'; ?>
-                    ;
-                    height:
-                        <?php echo '12px'; ?>
-                    ;
-                    mask:
-                        <?php echo "url('data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"40\" height=\"10\" viewBox=\"0 0 40 10\" preserveAspectRatio=\"none\"><path d=\"M0 5 Q 10 0, 20 5 T 40 5\" stroke=\"black\" stroke-width=\"2\" fill=\"transparent\"/></svg>') repeat-x"; ?>
-                    ;
-                    mask-size:
-                        <?php echo '40px 12px'; ?>
-                    ;
-                <?php elseif ($this->options->postTitleAfter == 'handDrawn'): ?>
-                    /* 添加手绘风格的样式 */
-                    /* 这里可以添加具体的手绘风格的样式 */
-                <?php endif; ?>
-            }
-        </style>
+    <!-- 标题装饰线条开关 -->
+    <?php if ($this->options->postTitleAfter == '0'): ?>
+        <style>.post-title::after,.post-content h1::after,h2::after,h3::after,h4::after,h5::after,h6::after{display:none!important}</style>
     <?php endif; ?>
 
     <!-- JS引入：按优先级分组加载（性能优化版） -->

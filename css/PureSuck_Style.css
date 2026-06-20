@@ -315,64 +315,122 @@ html {
 .post-title,
 h1 {
 	font-size: 1.75rem;
-	line-height: 40px
+	line-height: 40px;
+	position: relative
 }
 
 .h2,
 h2 {
 	font-size: 1.6rem;
-	line-height: 36px
-}
-
-h2::before {
-	content: "";
-	right: 3px;
-	display: block;
-	width: 8px;
-	height: 8px;
-	background-image: linear-gradient(var(--themecolor), transparent);
-	opacity: .65;
-	position: relative;
-	border-radius: 50%;
-	top: 30px;
+	line-height: 36px;
+	position: relative
 }
 
 .h3,
 h3 {
 	font-size: 1.35rem;
-	line-height: 32px
+	line-height: 32px;
+	position: relative
 }
 
 .h4,
 h4 {
 	font-size: 1.2rem;
-	line-height: 28px
+	line-height: 28px;
+	position: relative
 }
 
 .response.comment-title,
 .h5,
 h5 {
 	font-size: 1.05rem;
-	line-height: 26px
+	line-height: 26px;
+	position: relative
 }
 
 .h6,
 h6 {
 	font-size: 0.95rem;
-	line-height: 24px
+	line-height: 24px;
+	position: relative
 }
 
-h3::before {
+/* 主标题粗线条装饰 */
+.post-title::after {
 	content: "";
-	right: 3px;
-	display: block;
-	width: 8px;
-	height: 8px;
-	background-image: linear-gradient(var(--themecolor), transparent);
-	opacity: .55;
-	position: relative;
-	border-radius: 50%;
-	top: 32px;
+	position: absolute;
+	left: 0;
+	bottom: 5px;
+	width: 58px;
+	height: 11px;
+	border-radius: 0.4rem;
+	background: linear-gradient(to right,
+			var(--themecolor),
+			color-mix(in srgb, var(--themecolor) 55%, transparent),
+			transparent);
+	opacity: 0.45;
+	pointer-events: none;
+	transition: opacity .25s ease, width .25s ease;
+}
+
+.post-title:hover::after {
+	opacity: 0.6;
+	width: 70px;
+}
+
+@media (hover: none) {
+	.post-title:hover::after {
+		opacity: 0.45;
+		width: 58px;
+	}
+}
+
+/* 标题装饰波浪线 — 公共样式 */
+.post-content h1::after,
+h2::after,
+h3::after,
+h4::after,
+h5::after,
+h6::after {
+	content: "";
+	position: absolute;
+	left: 0;
+	bottom: -5px;
+	height: 12px;
+	background: linear-gradient(to right,
+		var(--themecolor),
+		color-mix(in srgb, var(--themecolor) 55%, transparent),
+		transparent);
+	mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="10" viewBox="0 0 40 10" preserveAspectRatio="none"><path d="M0 5 Q 10 0, 20 5 T 40 5" stroke="black" stroke-width="2" fill="transparent"/></svg>') repeat-x;
+	mask-size: 40px 12px;
+	-webkit-mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="10" viewBox="0 0 40 10" preserveAspectRatio="none"><path d="M0 5 Q 10 0, 20 5 T 40 5" stroke="black" stroke-width="2" fill="transparent"/></svg>') repeat-x;
+	-webkit-mask-size: 40px 12px;
+	opacity: .5;
+	pointer-events: none;
+}
+
+.post-content h1::after {
+	width: 96px
+}
+
+h2::after {
+	width: 86px
+}
+
+h3::after {
+	width: 76px
+}
+
+h4::after {
+	width: 66px
+}
+
+h5::after {
+	width: 56px
+}
+
+h6::after {
+	width: 46px
 }
 
 .p,
@@ -400,14 +458,13 @@ small {
 }
 
 @media screen and (min-width:579px) {
-
 	.root,
 	html {
 		font-size: 16px
 	}
 
-	.h1,
 	.post-title,
+	.h1,
 	h1 {
 		font-size: 1.8rem;
 		line-height: 44px
@@ -419,22 +476,10 @@ small {
 		line-height: 40px
 	}
 
-	h2::before {
-		width: 10px;
-		height: 10px;
-		top: 36px;
-	}
-
 	.h3,
 	h3 {
 		font-size: 1.45rem;
 		line-height: 36px
-	}
-
-	h3::before {
-		width: 9px;
-		height: 9px;
-		top: 32px;
 	}
 
 	.h4,
@@ -456,12 +501,34 @@ small {
 		line-height: 26px
 	}
 
+	.post-content h1::after {
+		width: 106px
+	}
+
+	h2::after {
+		width: 96px
+	}
+
+	h3::after {
+		width: 86px
+	}
+
+	h4::after {
+		width: 76px
+	}
+
+	h5::after {
+		width: 66px
+	}
+
+	h6::after {
+		width: 56px
+	}
 }
 
 @media screen and (min-width:1183px) {
-
-	.h1,
 	.post-title,
+	.h1,
 	h1 {
 		font-size: 2rem;
 		line-height: 48px
@@ -473,22 +540,10 @@ small {
 		line-height: 44px
 	}
 
-	h2::before {
-		width: 12px;
-		height: 12px;
-		top: 40px;
-	}
-
 	.h3,
 	h3 {
 		font-size: 1.5rem;
 		line-height: 40px
-	}
-
-	h3::before {
-		width: 10px;
-		height: 10px;
-		top: 34px
 	}
 
 	.h4,
@@ -509,6 +564,29 @@ small {
 		line-height: 28px
 	}
 
+	.post-content h1::after {
+		width: 116px
+	}
+
+	h2::after {
+		width: 106px
+	}
+
+	h3::after {
+		width: 96px
+	}
+
+	h4::after {
+		width: 86px
+	}
+
+	h5::after {
+		width: 76px
+	}
+
+	h6::after {
+		width: 66px
+	}
 }
 
 @media (min-width:1400px) {
@@ -2218,35 +2296,6 @@ textarea:focus-within+.CtBoxBar {
 
 .post-title {
 	position: relative;
-}
-
-.post-title::after {
-	content: none;
-	position: absolute;
-	left: 0;
-	bottom: 6px;
-	width: 96px;
-	height: 9px;
-	border-radius: 0.4rem;
-	background: linear-gradient(to right,
-			var(--themecolor),
-			color-mix(in srgb, var(--themecolor) 55%, transparent),
-			transparent);
-	opacity: 0.45;
-	pointer-events: none;
-	transition: opacity .25s ease, width .25s ease;
-}
-
-.post-title:hover::after {
-	opacity: 0.6;
-	width: 110px;
-}
-
-@media (hover: none) {
-	.post-title:hover::after {
-		opacity: 0.45;
-		width: 96px;
-	}
 }
 
 

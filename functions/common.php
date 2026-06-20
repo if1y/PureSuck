@@ -533,17 +533,16 @@ function themeConfig($form)
     $form->addInput($PjaxScript);
 
     //主题样式细调
-    // 标题粗下划线
+    // 标题下的装饰线条
     $postTitleAfter = new Typecho_Widget_Helper_Form_Element_Radio(
         'postTitleAfter',
         array(
-            'off' => _t('关'),
-            'boldLine' => _t('粗线条'),
-            'wavyLine' => _t('波浪线条'),
+            '1' => _t('显示'),
+            '0' => _t('隐藏'),
         ),
-        'off',
-        _t('主标题下的装饰线条样式'),
-        _t('选择主标题下的装饰线条样式，带有触摸反馈')
+        '1',
+        _t('标题下的装饰线条'),
+        _t('包括主标题的粗下划线、文内各级标题的波浪线，其中主标题有触摸反馈')
     );
     $form->addInput($postTitleAfter);
 
