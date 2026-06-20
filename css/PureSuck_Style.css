@@ -326,6 +326,7 @@ h2 {
 	position: relative
 }
 
+.response.comment-title,
 .h3,
 h3 {
 	font-size: 1.35rem;
@@ -333,6 +334,7 @@ h3 {
 	position: relative
 }
 
+.comment-title,
 .h4,
 h4 {
 	font-size: 1.2rem;
@@ -340,7 +342,6 @@ h4 {
 	position: relative
 }
 
-.response.comment-title,
 .h5,
 h5 {
 	font-size: 1.05rem;
@@ -476,19 +477,20 @@ small {
 		line-height: 40px
 	}
 
+	.response.comment-title,
 	.h3,
 	h3 {
 		font-size: 1.45rem;
 		line-height: 36px
 	}
 
+	.comment-title,
 	.h4,
 	h4 {
 		font-size: 1.3rem;
 		line-height: 34px
 	}
 
-	.response.comment-title,
 	.h5,
 	h5 {
 		font-size: 1.15rem;
@@ -1653,13 +1655,8 @@ li:before {
 	color: #858585
 }
 
-.comment-title {
-	font-weight: 800;
-}
-
-body,
 .post--cover .post-body .post-wrapper>p:first-child,
-.comment-title {
+body {
 	font-weight: 400;
 }
 
@@ -1792,7 +1789,7 @@ strong {
 }
 
 .response {
-	margin: 1.25rem 0
+	margin: .75rem 0
 }
 
 .comment-form-status {
@@ -1883,7 +1880,7 @@ strong {
 /* comment post **/
 .cp {
 	overflow: hidden;
-	padding: 1.45rem 0 1rem;
+	padding: 1.5rem 0 .5rem;
 	border-bottom: 1px solid var(--line-color);
 	word-wrap: break-word;
 }
@@ -1935,12 +1932,6 @@ strong {
 	font-size: 0.75rem;
 }
 
-.cm:has(.badge) {
-	color: color-mix(in srgb,
-			var(--text2-color) 92%,
-			var(--themecolor));
-}
-
 .ccr,
 .cm {
 	margin-top: 1rem;
@@ -1958,6 +1949,7 @@ strong {
 	border-radius: 0.3rem;
 	background-color: var(--pure-grey-color);
 	font-size: .75rem;
+	color: var(--text-color);
 }
 
 .badge {
@@ -2006,7 +1998,7 @@ strong {
 .left-bar {
 	display: flex;
 	align-items: center;
-	gap: 10px;
+	gap: 10px
 }
 
 /* 评论 */
@@ -2101,11 +2093,11 @@ strong {
 /* 评论发布区 */
 .respond {
 	margin-top: 3rem;
+	margin-bottom: 2rem;
+	font-size: 0.9rem
 }
 
 .ainfo .ci {
-	font-size: 0.85rem;
-	opacity: 0.85;
 	background: color-mix(in srgb, var(--card-color) 90%, transparent);
 	transition: opacity .3s ease, background-color .3s ease, border-color .3s ease, color .3s ease;
 }
@@ -2142,7 +2134,6 @@ textarea.ci {
 	height: 100%;
 	padding: 15px 15px;
 	min-height: 220px;
-	font-size: 1rem;
 	line-height: 1.8;
 	background: var(--card-color);
 }
@@ -2159,10 +2150,12 @@ textarea:focus-within+.CtBoxBar {
 }
 
 .submit {
-	align-self: flex-end;
+	display: inline-flex;
+    align-items: center;
+    justify-content: center;
+	height: 34px;
 	padding: 8px 28px;
-	border-radius: .85rem;
-	font-size: 0.95rem;
+	border-radius: .65rem;
 	background: var(--themecolor);
 	color: var(--pure-color);
 	border: none;
