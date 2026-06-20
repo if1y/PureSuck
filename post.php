@@ -11,14 +11,21 @@
         <div class="post-inner">
             <header class="post-item post-header  <?= $hasImg ? 'no-bg' : ''; ?>">
                 <div class="wrapper post-wrapper">
-                    <div class="avatar post-author">
-                        <img src="<?= $this->options->authorAvatar ?: $this->options->themeUrl('images/avatar.webp'); ?>"
-                            alt="作者头像"
-                            class="avatar-item avatar-img"
-                            loading="lazy"
-                            decoding="async"
-                            fetchpriority="low">
-                        <span class="avatar-item"><?php $this->author(); ?></span>
+                    <div class="post-header-meta">
+                        <?php $categories = $this->categories; if (!empty($categories)): $cat = $categories[0]; ?>
+                        <a class="post-category" href="<?= $cat['permalink']; ?>">
+                            <span class="post-category-name"><?= htmlspecialchars($cat['name']); ?></span>
+                        </a>
+                        <?php endif; ?>
+                        <?php if ($this->options->showPostTags == '1'): $tags = $this->tags; if (!empty($tags)): ?>
+                        <div class="post-tags">
+                            <?php foreach ($tags as $tag): ?>
+                            <a class="post-tag" href="<?= $tag['permalink']; ?>">
+                                <span class="post-tag-name"><?= htmlspecialchars($tag['name']); ?></span>
+                            </a>
+                            <?php endforeach; ?>
+                        </div>
+                        <?php endif; endif; ?>
                     </div>
                 </div>
             </header>

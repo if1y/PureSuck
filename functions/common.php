@@ -547,6 +547,16 @@ function themeConfig($form)
     );
     $form->addInput($postTitleAfter);
 
+    // 文章分类右侧标签
+    $showPostTags = new Typecho_Widget_Helper_Form_Element_Radio(
+        'showPostTags',
+        array('1' => _t('显示'), '0' => _t('隐藏')),
+        '0',
+        _t('主标题上的分类标签'),
+        _t('在主标题上的分类按钮右侧跟随展示标签，不超过一行')
+    );
+    $form->addInput($showPostTags);
+
     // 搜索功能显示选项
     $showSearch = new Typecho_Widget_Helper_Form_Element_Radio(
         'showSearch',
@@ -642,19 +652,5 @@ function themeConfig($form)
     $defaultColor = 'pink';
     $colorSelect = new Typecho_Widget_Helper_Form_Element_Radio('colorScheme', $colors, $defaultColor, _t('配色方案'), _t('选择一个配色方案，默认为素粉'));
     $form->addInput($colorSelect);
-
-    // 卡片竖排分类显示选项
-    $showCardCategory = new Typecho_Widget_Helper_Form_Element_Radio(
-        'showCardCategory',
-        array(
-            '1' => _t('显示'),
-            '0' => _t('隐藏')
-        ),
-        '1',
-        _t('是否在文章卡片右上角显示竖排分类'),
-        _t('只在首页及搜索页等小卡片显示，不在文章内显示')
-
-    );
-    $form->addInput($showCardCategory);
 
 }

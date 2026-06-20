@@ -11,10 +11,6 @@
         'author' => _t('%s 发布的文章')
     ], '', ''); ?></h3>
 
-    <?php
-    $showCardCategory = isset($this->options->showCardCategory)
-        && $this->options->showCardCategory === '1';
-    ?>
     <?php if ($this->have()): ?>
         <?php while ($this->next()): ?>
             <?php
@@ -22,30 +18,24 @@
             ?>
             <article class="post <?= $hasImg ? 'post--photo post--cover' : 'post--text'; ?> post--index main-item" data-ps-post-key="<?= $this->cid; ?>">
                 <div class="post-inner">
-                    <?php
-                    $cat = null;
-
-                    // 仅在开启时才取分类
-                    if ($showCardCategory) {
-                        $categories = $this->categories;
-                        if (!empty($categories)) {
-                            $cat = $categories[0];
-                        }
-                    }
-                    ?>
-
-                    <?php if ($showCardCategory && !empty($cat)): ?>
-                        <span class="post-cat-vertical">
-                            <?= htmlspecialchars($cat['name']); ?>
-                        </span>
-                    <?php endif; ?>
 
                     <header class="post-item post-header  <?= $hasImg ? 'no-bg' : ''; ?>">
                         <div class="wrapper post-wrapper">
-                            <div class="avatar post-author">
-                                <img src="<?= $this->options->authorAvatar ?: $this->options->themeUrl('images/avatar.webp'); ?>"
-                                    alt="作者头像" class="avatar-item avatar-img">
-                                <span class="avatar-item"><?php $this->author(); ?></span>
+                            <div class="post-header-meta">
+                                <?php $categories = $this->categories; if (!empty($categories)): $cat = $categories[0]; ?>
+                                <a class="post-category" href="<?= $cat['permalink']; ?>">
+                                    <span class="post-category-name"><?= htmlspecialchars($cat['name']); ?></span>
+                                </a>
+                                <?php endif; ?>
+                                <?php if ($this->options->showPostTags == '1'): $tags = $this->tags; if (!empty($tags)): ?>
+                                <div class="post-tags">
+                                    <?php foreach ($tags as $tag): ?>
+                                    <a class="post-tag" href="<?= $tag['permalink']; ?>">
+                                        <span class="post-tag-name"><?= htmlspecialchars($tag['name']); ?></span>
+                                    </a>
+                                    <?php endforeach; ?>
+                                </div>
+                                <?php endif; endif; ?>
                             </div>
                         </div>
                     </header>
