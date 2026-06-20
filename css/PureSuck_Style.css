@@ -46,7 +46,7 @@
 }
 
 * {
-	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0)
 }
 
 *,
@@ -66,20 +66,20 @@ html {
 	text-autospace: normal;
 	/* After Chrome 140+++ */
 	font-family: "PingFang SC", "Hiragino Sans GB", "Source Han Sans CN", "Segoe UI", Helvetica, Arial, -apple-system, system-ui, sans-serif;
-	color: var(--text-color);
+	color: var(--text-color)
 }
 
 body {
 	margin: 0;
 	background-color: var(--background-color);
 	transition: background-color .3s ease, color .3s ease;
-	text-align: justify;
+	text-align: justify
 }
 
 
 a {
 	text-decoration: none;
-	-webkit-tap-highlight-color: transparent;
+	-webkit-tap-highlight-color: transparent
 }
 
 h1 a,
@@ -95,26 +95,26 @@ h5 a:hover,
 h6 a,
 h6 a:hover {
 	color: inherit;
-	border-bottom: 0;
+	border-bottom: 0
 }
 
 img {
 	height: auto;
 	max-width: 100%;
-	vertical-align: bottom;
+	vertical-align: bottom
 }
 
 figure {
 	display: block;
 	margin: 0;
-	text-align: center;
+	text-align: center
 }
 
 figcaption {
 	color: var(--text2-color);
 	font-size: 0.75rem;
 	margin-top: 0.5em;
-	margin-bottom: 0.5em;
+	margin-bottom: 0.5em
 }
 
 object {
@@ -143,7 +143,7 @@ hr {
 
 	display: flex;
 	align-items: center;
-	justify-content: center;
+	justify-content: center
 }
 
 hr::before {
@@ -152,11 +152,11 @@ hr::before {
 	letter-spacing: 8px;
 
 	color: var(--themecolor);
-	opacity: .55;
+	opacity: .55
 }
 
 [data-theme="dark"] hr::before {
-	opacity: .65;
+	opacity: .65
 }
 
 button,
@@ -165,7 +165,7 @@ textarea {
 	font-family: inherit;
 	font-size: 100%;
 	margin: 0;
-	-webkit-text-size-adjust: 100%;  /* 禁止 iOS Safari 自动缩放 < 16px 的输入框 */
+	-webkit-text-size-adjust: 100%  /* 禁止 iOS Safari 自动缩放 < 16px 的输入框 */
 }
 
 input {
@@ -173,7 +173,7 @@ input {
 	outline: none;
 	padding: 10px 10px 10px 12px;
 	border-radius: 0.75rem;
-	width: 200px;
+	width: 200px
 }
 
 textarea {
@@ -184,7 +184,7 @@ table {
 	width: 100%;
 	border-collapse: collapse;
 	overflow: hidden;
-	margin: 1.25rem 0;
+	margin: 1.25rem 0
 }
 
 /* 表格滚动容器 */
@@ -199,11 +199,11 @@ table {
 	margin: 0;
 	min-width: 600px;
 	/* 保证内容不换行 */
-	border-collapse: collapse;
+	border-collapse: collapse
 }
 
 table thead {
-	background-color: var(--pure-grey-color);
+	background-color: var(--pure-grey-color)
 }
 
 table th,
@@ -213,18 +213,18 @@ table td {
 }
 
 table tr {
-	transition: background-color .3s ease;
+	transition: background-color .3s ease
 }
 
 table tr:has(td):hover {
-	background-color: var(--hover-color);
+	background-color: var(--hover-color)
 }
 
 .icon-ui:before {
 	vertical-align: bottom;
 	font-size: 20px;
 	margin: 4px;
-	transition: color .3s ease;
+	transition: color .3s ease
 }
 
 .icon-ui-comment:before {
@@ -243,7 +243,7 @@ kbd {
 	margin: 4px 5px;
 	padding-right: 8px;
 	padding-left: 8px;
-	font-family: ui-monospace, "JetBrains Mono", "Fira Code", SFMono-Regular, Menlo, Consolas, monospace;
+	font-family: ui-monospace, "JetBrains Mono", "Fira Code", SFMono-Regular, Menlo, Consolas, monospace
 }
 
 /* 代码块 */
@@ -258,7 +258,7 @@ pre {
 	font-size: .9em;
 	word-wrap: break-word;
 	position: relative;
-	max-height: 750px;
+	max-height: 750px
 }
 
 /* 代码文本 */
@@ -271,7 +271,7 @@ pre code {
 	font-size: 0.92em;
 	line-height: 1.7;
 
-	color: var(--text-color);
+	color: var(--text-color)
 }
 
 /* 行内代码 */
@@ -284,7 +284,7 @@ pre code {
 
 	border-radius: 0.4rem;
 	color: var(--text-color);
-	white-space: nowrap;
+	white-space: nowrap
 }
 
 .form {
@@ -303,7 +303,7 @@ a,
 button,
 input,
 form {
-	transition: color .3s ease, background-color .3s ease, border-color .3s ease, box-shadow .3s ease;
+	transition: color .3s ease, background-color .3s ease, border-color .3s ease, box-shadow .3s ease
 }
 
 .root,
@@ -371,12 +371,12 @@ h6 {
 			transparent);
 	opacity: 0.45;
 	pointer-events: none;
-	transition: opacity .25s ease, width .25s ease;
+	transition: opacity .25s ease, width .25s ease
 }
 
 .post-title:hover::after {
 	opacity: 0.6;
-	width: 70px;
+	width: 70px
 }
 
 @media (hover: none) {
@@ -407,7 +407,7 @@ h6::after {
 	-webkit-mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="10" viewBox="0 0 40 10" preserveAspectRatio="none"><path d="M0 5 Q 10 0, 20 5 T 40 5" stroke="black" stroke-width="2" fill="transparent"/></svg>') repeat-x;
 	-webkit-mask-size: 40px 12px;
 	opacity: .5;
-	pointer-events: none;
+	pointer-events: none
 }
 
 .post-content h1::after {
@@ -647,7 +647,7 @@ ul,
 .nav>.nav-item:last-child,
 .wrapper>:last-child {
 	margin-bottom: 0;
-	word-break: break-word;
+	word-break: break-word
 }
 
 .avatar {
@@ -668,7 +668,7 @@ ul,
 	width: 100%;
 	max-width: 0;
 	margin-bottom: 0;
-	transition: max-width .3s cubic-bezier(0.345, 0.045, 0.345, 1);
+	transition: max-width .3s cubic-bezier(0.345, 0.045, 0.345, 1)
 }
 
 .avatar-item>* {
@@ -722,7 +722,7 @@ ul,
 	flex-wrap: nowrap;
 	align-items: center;
 	gap: 10px;
-	overflow: hidden;
+	overflow: hidden
 }
 
 /* 文章标签列表 - 单行溢出省略 */
@@ -732,7 +732,7 @@ ul,
 	align-items: center;
 	gap: 8px;
 	overflow: hidden;
-	min-width: 0;
+	min-width: 0
 }
 
 /* 文章标签按钮 */
@@ -752,7 +752,7 @@ ul,
 	max-width: 120px;
 	white-space: nowrap;
 	overflow: hidden;
-	text-overflow: ellipsis;
+	text-overflow: ellipsis
 }
 
 .post-tag:hover {
@@ -767,7 +767,7 @@ ul,
 	color: inherit;
 	text-decoration: none;
 	overflow: hidden;
-	text-overflow: ellipsis;
+	text-overflow: ellipsis
 }
 
 .post-tag-name:hover {
@@ -778,11 +778,11 @@ ul,
 .post--cover .post-tag {
 	border-radius: 0.5rem;
 	background: rgb(0 0 0 / 15%);
-	color: #f5f5f5;
+	color: #f5f5f5
 }
 
 .post--cover .post-tag:hover {
-	color: #ddd;
+	color: #ddd
 }
 
 .avatar-img>* {
@@ -805,29 +805,29 @@ ul,
 .cp ul {
     margin: 1em 0;
     padding-left: 1.5em;
-    list-style-position: outside;
+    list-style-position: outside
 }
 
 .post-body .post-content ol,
 .cp ol {
-    list-style-type: decimal;
+    list-style-type: decimal
 }
 
 .post-body .post-content ul,
 .cp ul {
-    list-style-type: disc;
+    list-style-type: disc
 }
 
 .post-body .post-content li,
 .cp li {
     display: list-item;
     margin: .38em 0;
-    line-height: 1.85;
+    line-height: 1.85
 }
 
 .post-body .post-content li p,
 .cp li p {
-    margin-bottom: 0;
+    margin-bottom: 0
 }
 
 .post-body .post-content li>ol,
@@ -835,17 +835,17 @@ ul,
 .cp li>ol,
 .cp li>ul {
     margin-top: .35em;
-    margin-bottom: .35em;
+    margin-bottom: .35em
 }
 
 .post-body .post-content ul ul,
 .cp ul ul {
-    list-style-type: circle;
+    list-style-type: circle
 }
 
 .post-body .post-content ul ul ul,
 .cp ul ul ul {
-    list-style-type: square;
+    list-style-type: square
 }
 
 /* Keep ordered nesting numeric-first for blog readability */
@@ -853,19 +853,19 @@ ul,
 .post-body .post-content ul ol,
 .cp ol ol,
 .cp ul ol {
-    list-style-type: decimal;
+    list-style-type: decimal
 }
 
 .post-body .post-content ol ol ol,
 .post-body .post-content ul ol ol,
 .cp ol ol ol,
 .cp ul ol ol {
-    list-style-type: lower-alpha;
+    list-style-type: lower-alpha
 }
 
 .post-body .post-content li::marker,
 .cp li::marker {
-    color: color-mix(in srgb, var(--text-color) 68%, var(--themecolor));
+    color: color-mix(in srgb, var(--text-color) 68%, var(--themecolor))
 }
 .post--cover .post-header {
 	position: absolute;
@@ -922,17 +922,17 @@ ul,
 	display: inline-block;
 	margin: 3px 3px 3px 8px;
 	border-radius: 0.4rem;
-	transition: color .3s ease, background-color .3s ease, border-color .3s ease, transform .3s ease;
+	transition: color .3s ease, background-color .3s ease, border-color .3s ease, transform .3s ease
 }
 
 .nav-item a {
 	display: block;
 	padding: 0.25rem 0.45rem;
-	width: 100%;
+	width: 100%
 }
 
 .nav a {
-	color: var(--nav-text-color);
+	color: var(--nav-text-color)
 }
 
 body {
@@ -1076,11 +1076,11 @@ body>.wrapper {
 }
 
 .content-layout {
-	width: 100%;
+	width: 100%
 }
 
 .content-main {
-	min-width: 0;
+	min-width: 0
 }
 
 @media (min-width:1183px) {
@@ -1116,21 +1116,21 @@ body>.wrapper {
 	padding-bottom: 12px;
 	text-align: center;
 	display: flex;
-	z-index: 10;
+	z-index: 10
 }
 
 .header-wrapper.header-title {
-	transition: none;
+	transition: none
 }
 
 .header-wrapper.header-title>.header-title {
 	font-size: 1.5rem;
 	font-weight: 600;
-	line-height: 2;
+	line-height: 2
 }
 
 .right-sidebar {
-	transition: none;
+	transition: none
 }
 
 
@@ -1168,7 +1168,7 @@ body>.wrapper {
 	transition: opacity .2s ease, transform .2s cubic-bezier(.33, 0, .15, 1), width .2s ease, height .2s ease;
 	opacity: 0;
 	transform: translate(0, 0) scale(1);
-	z-index: -1;
+	z-index: -1
 }
 
 .nav-indicator.active {
@@ -1258,7 +1258,7 @@ body>.wrapper {
 	width: 100%;
 	padding-top: 12px;
 	padding-bottom: 24px;
-	contain: layout style;
+	contain: layout style
 }
 
 .main-pager {
@@ -1317,7 +1317,7 @@ body>.wrapper {
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-	text-align: center;
+	text-align: center
 }
 
 .protected input[type="password"],
@@ -1325,7 +1325,7 @@ body>.wrapper {
 	padding: 10px;
 	margin: 5px 0;
 	width: 300px;
-	box-sizing: border-box;
+	box-sizing: border-box
 }
 
 .post {
@@ -1342,7 +1342,7 @@ body>.wrapper {
 	float: left;
 	width: 100%;
 	transform: translateZ(0);
-	backface-visibility: hidden;
+	backface-visibility: hidden
 }
 
 .post-inner::after {
@@ -1354,11 +1354,11 @@ body>.wrapper {
 	opacity: 0;
 	transition: opacity .28s ease;
 	box-shadow:
-		inset 0 0 0 1px rgba(0, 0, 0, .03);
+		inset 0 0 0 1px rgba(0, 0, 0, .03)
 }
 
 .post:hover .post-inner::after {
-	opacity: 1;
+	opacity: 1
 }
 
 .post-item {
@@ -1410,7 +1410,7 @@ body>.wrapper {
 
 .post-meta .meta-item.icon::before {
 	font-size: 22px;
-	transition: color .3s ease;
+	transition: color .3s ease
 }
 
 @media (min-width:386px) {
@@ -1549,12 +1549,12 @@ body>.wrapper {
 
 .post-title a,
 a {
-	color: var(--text-color);
+	color: var(--text-color)
 }
 
 .post-title a:hover,
 a:hover {
-	color: var(--themehovercolor);
+	color: var(--themehovercolor)
 }
 
 .inner-post-wrapper a:not(.github-card):not(.ps-post-card):not(.friendsboard-list a):not(.meta.post-meta a):not(.cloud-container a) {
@@ -1564,7 +1564,7 @@ a:hover {
 	overflow-wrap: break-word;
 	text-decoration: none;
 	max-width: 100%;
-	color: var(--themecolor);
+	color: var(--themecolor)
 }
 
 .inner-post-wrapper a:not(.github-card):not(.ps-post-card):not(.friendsboard-list a):not(.meta.post-meta a):not(.cloud-container a)::before {
@@ -1578,17 +1578,17 @@ a:hover {
 	border-radius: 0.4rem;
 	transform: scale(0.8);
 	transition: transform .3s ease, opacity .3s ease;
-	opacity: 0;
+	opacity: 0
 }
 
 .inner-post-wrapper a:not(.github-card):not(.ps-post-card):not(.friendsboard-list a):not(.meta.post-meta a):not(.cloud-container a):hover::before {
 	transform: scale(1.05, 0.88);
-	opacity: 0.25;
+	opacity: 0.25
 }
 
 .inner-post-wrapper a:not(.github-card):not(.ps-post-card):not(.friendsboard-list a):not(.meta.post-meta a):not(.cloud-container a):active::before {
 	transform: scale(1.03, 0.8);
-	opacity: 0.4;
+	opacity: 0.4
 }
 
 .inner-post-wrapper a:not(.github-card):not(.ps-post-card):not(.friendsboard-list a):not(.meta.post-meta a):not(.cloud-container a)::after {
@@ -1596,7 +1596,7 @@ a:hover {
 	font-family: fontello;
 	color: currentColor;
 	font-size: 0.8em;
-	margin-left: 5px;
+	margin-left: 5px
 }
 
 blockquote {
@@ -1609,7 +1609,7 @@ blockquote {
 	position: relative;
 	font-size: 0.95rem;
 	transition: color .3s ease, background-color .3s ease, border-color .3s ease;
-	border: 1px solid var(--border-color);
+	border: 1px solid var(--border-color)
 }
 
 /* 多段内容排版 */
@@ -1618,7 +1618,7 @@ blockquote:has(ul),
 blockquote:has(ol),
 blockquote:has(pre) {
 	padding-top: 1.75rem;
-	padding-bottom: 1.75rem;
+	padding-bottom: 1.75rem
 }
 
 blockquote::before {
@@ -1628,7 +1628,7 @@ blockquote::before {
 	top: 0.75rem;
 	width: 1rem;
 	height: 1rem;
-	background: radial-gradient(circle at 0.25rem 0.25rem, var(--themecolor) 1.5px, transparent 2px), radial-gradient(circle at 0.75rem 0.25rem, var(--themecolor) 1px, transparent 1.5px), radial-gradient(circle at 0.25rem 0.75rem, var(--themecolor) 1px, transparent 1.5px), radial-gradient(circle at 0.75rem 0.75rem, var(--themecolor) 1.5px, transparent 2px);
+	background: radial-gradient(circle at 0.25rem 0.25rem, var(--themecolor) 1.5px, transparent 2px), radial-gradient(circle at 0.75rem 0.25rem, var(--themecolor) 1px, transparent 1.5px), radial-gradient(circle at 0.25rem 0.75rem, var(--themecolor) 1px, transparent 1.5px), radial-gradient(circle at 0.75rem 0.75rem, var(--themecolor) 1.5px, transparent 2px)
 }
 
 blockquote::after {
@@ -1639,7 +1639,7 @@ blockquote::after {
 	width: 1px;
 	height: calc(100% - 1.75rem);
 	background: linear-gradient(to bottom, var(--themecolor), transparent);
-	opacity: 0.3;
+	opacity: 0.3
 }
 
 ol,
@@ -1657,7 +1657,7 @@ li:before {
 
 .post--cover .post-body .post-wrapper>p:first-child,
 body {
-	font-weight: 400;
+	font-weight: 400
 }
 
 h2,
@@ -1667,7 +1667,7 @@ h5,
 h6,
 b,
 strong {
-	font-weight: 600;
+	font-weight: 600
 }
 
 .avatar,
@@ -1696,12 +1696,12 @@ strong {
 
 .meta-item {
 	color: inherit;
-	transition: color .3s ease;
+	transition: color .3s ease
 }
 
 .meta-item:before {
 	font-size: 18px;
-	transition: color .3s ease;
+	transition: color .3s ease
 }
 
 .meta-item:hover {
@@ -1730,7 +1730,7 @@ strong {
 }
 
 .nav-item:active {
-	transform: scale(0.925);
+	transform: scale(0.925)
 }
 
 .nav-item a,
@@ -1739,7 +1739,7 @@ strong {
 }
 
 .main-lastinfo {
-	min-height: 50px;
+	min-height: 50px
 }
 
 .nav.main-lastinfo::before {
@@ -1748,12 +1748,12 @@ strong {
 	height: 3px;
 	width: 50px;
 	background: var(--text2-color);
-	margin-bottom: 10px;
+	margin-bottom: 10px
 }
 
 .post-inner {
 	border-radius: 0.75rem;
-	box-shadow: 0 0 6px #00000008;
+	box-shadow: 0 0 6px #00000008
 }
 
 .post-item {
@@ -1772,11 +1772,11 @@ strong {
 .post--cover .post-category {
 	border-radius: 0.5rem;
 	background: rgb(0 0 0 / 15%);
-	color: #f5f5f5;
+	color: #f5f5f5
 }
 
 .post--cover .post-category:hover {
-	color: #ddd;
+	color: #ddd
 }
 
 .post--cover .post-body p:first-child strong {
@@ -1803,7 +1803,7 @@ strong {
 	color: var(--text2-color);
 	opacity: .86;
 	transform: translateY(0);
-	transition: opacity .32s ease, transform .32s ease;
+	transition: opacity .32s ease, transform .32s ease
 }
 
 .comment-form-status::before {
@@ -1813,22 +1813,22 @@ strong {
 	border-radius: 999px;
 	background: color-mix(in srgb, var(--text2-color) 62%, transparent);
 	opacity: .42;
-	transform: scale(1);
+	transform: scale(1)
 }
 
 .comment-form-status.is-active {
 	opacity: 1;
-	transform: translateY(-1px);
+	transform: translateY(-1px)
 }
 
 .comment-form-status.is-active::before {
 	background: color-mix(in srgb, var(--themecolor) 58%, var(--text2-color));
 	opacity: .88;
-	animation: ps-status-pulse 1.55s ease-in-out infinite;
+	animation: ps-status-pulse 1.55s ease-in-out infinite
 }
 
 .comment-form-status.is-live {
-	animation: ps-status-live .56s cubic-bezier(.22, .8, .2, 1);
+	animation: ps-status-live .56s cubic-bezier(.22, .8, .2, 1)
 }
 
 @keyframes ps-status-live {
@@ -1864,7 +1864,7 @@ strong {
 .comment-list {
 	margin: 0;
 	padding-left: 0;
-	list-style-type: none;
+	list-style-type: none
 }
 
 .avatarcc {
@@ -1874,7 +1874,7 @@ strong {
 	width: 56px;
 	height: 56px;
 	border-radius: 50%;
-	background-color: var(--pure-grey-color);
+	background-color: var(--pure-grey-color)
 }
 
 /* comment post **/
@@ -1882,7 +1882,7 @@ strong {
 	overflow: hidden;
 	padding: 1.5rem 0 .5rem;
 	border-bottom: 1px solid var(--line-color);
-	word-wrap: break-word;
+	word-wrap: break-word
 }
 
 .cp-waiting {
@@ -1893,14 +1893,14 @@ strong {
 	line-height: 1.4;
 	opacity: .9;
 	background: color-mix(in srgb, var(--themecolor) 18%, transparent);
-	border: 1px solid color-mix(in srgb, var(--themecolor) 26%, var(--border-color));
+	border: 1px solid color-mix(in srgb, var(--themecolor) 26%, var(--border-color))
 }
 
 
 .cp p {
 	margin: 0 0 0.72rem 0;
 	line-height: 1.8;
-	color: var(--text-color);
+	color: var(--text-color)
 }
 
 .cp>a:not(.cp-waiting a),
@@ -1909,12 +1909,12 @@ strong {
 	text-decoration: none;
 	border-radius: 0.35rem;
 	position: relative;
-	display: inline-block;
+	display: inline-block
 }
 
 .cp>a:not(.cp-waiting a):hover,
 .cp p>a:hover {
-	color: var(--themehovercolor);
+	color: var(--themehovercolor)
 }
 
 .cr {
@@ -1929,7 +1929,7 @@ strong {
 .cm {
 	margin-top: 0.72rem;
 	color: var(--text2-color);
-	font-size: 0.75rem;
+	font-size: 0.75rem
 }
 
 .ccr,
@@ -1949,7 +1949,7 @@ strong {
 	border-radius: 0.3rem;
 	background-color: var(--pure-grey-color);
 	font-size: .75rem;
-	color: var(--text-color);
+	color: var(--text-color)
 }
 
 .badge {
@@ -1959,12 +1959,12 @@ strong {
 	color: var(--pure-color);
 	background-color: color-mix(in srgb,
 			var(--themecolor) 85%,
-			var(--card-color));
+			var(--card-color))
 }
 
 .c_p>.children {
 	margin-left: 0.6rem;
-	padding-left: 58px;
+	padding-left: 58px
 }
 
 .tbox-container {
@@ -1976,7 +1976,7 @@ strong {
 }
 
 .tbox-container .tbox {
-	flex: 1;
+	flex: 1
 }
 
 @media (max-width: 767.5px) {
@@ -1992,7 +1992,7 @@ strong {
 .CtBoxBar {
 	display: flex;
 	justify-content: space-between;
-	align-items: center;
+	align-items: center
 }
 
 .left-bar {
@@ -2004,13 +2004,13 @@ strong {
 /* 评论 */
 .page-navigator {
 	margin: 24px 0;
-	position: relative;
+	position: relative
 }
 
 /* 评论分页状态 */
 .page-navigator.loading {
 	opacity: 0.6;
-	pointer-events: none;
+	pointer-events: none
 }
 
 .page-navigator.loading::after {
@@ -2024,7 +2024,7 @@ strong {
 	border: 2px solid var(--themecolor);
 	border-top-color: transparent;
 	border-radius: 50%;
-	animation: ps-spin 0.8s linear infinite;
+	animation: ps-spin 0.8s linear infinite
 }
 
 @keyframes ps-spin {
@@ -2040,11 +2040,11 @@ strong {
 	gap: 6px;
 	padding: 0;
 	margin: 0;
-	list-style: none;
+	list-style: none
 }
 
 .pagination li {
-	display: flex;
+	display: flex
 }
 
 .pagination li a {
@@ -2061,22 +2061,22 @@ strong {
 	border-radius: 0.45rem;
 	border: 1px solid var(--border-color);
 	background-color: var(--card-color);
-	transition: color .25s ease, background-color .25s ease, border-color .25s ease;
+	transition: color .25s ease, background-color .25s ease, border-color .25s ease
 }
 
 .pagination li a:hover {
-	background-color: var(--hover-color);
+	background-color: var(--hover-color)
 }
 
 .pagination li.active a {
 	color: var(--themecolor);
 	border-color: var(--themecolor);
-	background-color: var(--card-color);
+	background-color: var(--card-color)
 }
 
 .pagination li.prev a,
 .pagination li.next a {
-	min-width: 52px;
+	min-width: 52px
 }
 
 @media (max-width: 480px) {
@@ -2087,7 +2087,7 @@ strong {
 }
 
 #comments div[id^="comment-"] {
-	scroll-margin-top: 100px;
+	scroll-margin-top: 100px
 }
 
 /* 评论发布区 */
@@ -2099,11 +2099,11 @@ strong {
 
 .ainfo .ci {
 	background: color-mix(in srgb, var(--card-color) 90%, transparent);
-	transition: opacity .3s ease, background-color .3s ease, border-color .3s ease, color .3s ease;
+	transition: opacity .3s ease, background-color .3s ease, border-color .3s ease, color .3s ease
 }
 
 .ainfo .ci:focus {
-	opacity: 1;
+	opacity: 1
 }
 
 .ci {
@@ -2116,16 +2116,16 @@ strong {
 	background: var(--card-color);
 	color: var(--text2-color);
 	line-height: 1.7;
-	transition: border-color .3s ease, background-color .3s ease, color .3s ease;
+	transition: border-color .3s ease, background-color .3s ease, color .3s ease
 }
 
 .ci:hover {
-	border-color: color-mix(in srgb, var(--themecolor) 35%, var(--border-color));
+	border-color: color-mix(in srgb, var(--themecolor) 35%, var(--border-color))
 }
 
 .ci:focus {
 	border-color: var(--themecolor);
-	background-color: color-mix(in srgb, var(--themecolor) 6%, var(--card-color));
+	background-color: color-mix(in srgb, var(--themecolor) 6%, var(--card-color))
 }
 
 textarea.ci {
@@ -2135,18 +2135,18 @@ textarea.ci {
 	padding: 15px 15px;
 	min-height: 220px;
 	line-height: 1.8;
-	background: var(--card-color);
+	background: var(--card-color)
 }
 
 .CtBoxBar {
 	margin-top: 12px;
 	opacity: .8;
-	transition: opacity .3s ease;
+	transition: opacity .3s ease
 }
 
 textarea:focus+.CtBoxBar,
 textarea:focus-within+.CtBoxBar {
-	opacity: 1;
+	opacity: 1
 }
 
 .submit {
@@ -2160,15 +2160,15 @@ textarea:focus-within+.CtBoxBar {
 	color: var(--pure-color);
 	border: none;
 	cursor: pointer;
-	transition: transform .25s ease, background-color .25s ease, color .25s ease, box-shadow .25s ease;
+	transition: transform .25s ease, background-color .25s ease, color .25s ease, box-shadow .25s ease
 }
 
 .submit:hover {
-	transform: translateY(-1px);
+	transform: translateY(-1px)
 }
 
 .submit:active {
-	transform: scale(.96);
+	transform: scale(.96)
 }
 
 
@@ -2195,7 +2195,7 @@ textarea:focus-within+.CtBoxBar {
 	border-radius: 50%;
 	position: relative;
 	background-color: var(--card-color);
-	color: var(--text2-color);
+	color: var(--text2-color)
 }
 
 .el-avatar img {
@@ -2204,13 +2204,13 @@ textarea:focus-within+.CtBoxBar {
 	object-fit: cover;
 	border-radius: 50%;
 	transform: scale(1);
-	transition: transform .4s cubic-bezier(0.345, 0.045, 0.345, 1);
+	transition: transform .4s cubic-bezier(0.345, 0.045, 0.345, 1)
 }
 
 .avatar-hover-effect {
 	position: relative;
 	cursor: pointer;
-	transition: transform .3s ease;
+	transition: transform .3s ease
 }
 
 .avatar-hover-effect::after {
@@ -2226,7 +2226,7 @@ textarea:focus-within+.CtBoxBar {
 	transition:
 		opacity .3s ease,
 		transform .3s ease;
-	pointer-events: none;
+	pointer-events: none
 }
 
 .avatar-hover-effect::before {
@@ -2239,32 +2239,32 @@ textarea:focus-within+.CtBoxBar {
 			transparent 65%);
 	opacity: 0;
 	transition: opacity .35s ease;
-	pointer-events: none;
+	pointer-events: none
 }
 
 .avatar-hover-effect:hover {
-	transform: translateY(-2px);
+	transform: translateY(-2px)
 }
 
 .avatar-hover-effect:hover::after {
 	opacity: 1;
-	transform: scale(1);
+	transform: scale(1)
 }
 
 .avatar-hover-effect:hover::before {
-	opacity: 1;
+	opacity: 1
 }
 
 .avatar-hover-effect:hover img {
-	transform: scale(1.035);
+	transform: scale(1.035)
 }
 
 .avatar-hover-effect:active {
-	transform: translateY(0);
+	transform: translateY(0)
 }
 
 .avatar-hover-effect:active img {
-	transform: scale(0.97);
+	transform: scale(0.97)
 }
 
 @media (hover: none) {
@@ -2284,29 +2284,29 @@ textarea:focus-within+.CtBoxBar {
 
 /* 主内容区 */
 .wrapper {
-	position: relative;
+	position: relative
 }
 
 .post-title {
-	position: relative;
+	position: relative
 }
 
 
 .no-bg {
-	background-color: transparent !important;
+	background-color: transparent !important
 }
 
 .post-media {
 	width: 100%;
 	margin: 0;
-	overflow: hidden;
+	overflow: hidden
 }
 
 .post-media img {
 	width: 100%;
 	max-height: 350px;
 	object-fit: cover;
-	object-position: center;
+	object-position: center
 }
 
 /* 版权信息卡片 */
@@ -2323,7 +2323,7 @@ textarea:focus-within+.CtBoxBar {
 	border-radius: 12px;
 
 	box-shadow: none;
-	overflow: hidden;
+	overflow: hidden
 }
 
 .license-info-card::after {
@@ -2340,7 +2340,7 @@ textarea:focus-within+.CtBoxBar {
 			color-mix(in srgb, var(--themecolor) 10%, transparent) 35%,
 			transparent 70%);
 
-	pointer-events: none;
+	pointer-events: none
 }
 
 .license-info-title {
@@ -2351,7 +2351,7 @@ textarea:focus-within+.CtBoxBar {
 	font-weight: 650;
 	margin-bottom: .6em;
 
-	color: color-mix(in srgb, var(--themecolor) 70%, var(--text-color));
+	color: color-mix(in srgb, var(--themecolor) 70%, var(--text-color))
 }
 
 .license-info-title::before {
@@ -2363,7 +2363,7 @@ textarea:focus-within+.CtBoxBar {
 	width: 2px;
 
 	background-color: var(--themecolor);
-	opacity: .65;
+	opacity: .65
 }
 
 .license-info-link {
@@ -2372,7 +2372,7 @@ textarea:focus-within+.CtBoxBar {
 
 	font-size: .92em;
 	color: var(--text2-color);
-	word-break: break-all;
+	word-break: break-all
 }
 
 .license-info-meta {
@@ -2383,18 +2383,18 @@ textarea:focus-within+.CtBoxBar {
 	gap: 16px 22px;
 
 	font-size: .9em;
-	color: var(--text2-color);
+	color: var(--text2-color)
 }
 
 .license-info-meta>div {
 	display: flex;
 	flex-direction: column;
-	gap: 6px;
+	gap: 6px
 }
 
 .license-info-meta span:first-child {
 	font-size: .84em;
-	opacity: .85;
+	opacity: .85
 }
 
 .cc-icon {
@@ -2403,7 +2403,7 @@ textarea:focus-within+.CtBoxBar {
 	bottom: 1rem;
 	height: 17px;
 	opacity: .45;
-	pointer-events: none;
+	pointer-events: none
 }
 
 .cc-icon::before {
@@ -2414,25 +2414,25 @@ textarea:focus-within+.CtBoxBar {
 
 	color: color-mix(in srgb,
 			var(--themecolor) 28%,
-			var(--border-color));
+			var(--border-color))
 }
 
 /* PicGird 图片框架 布局 **/
 
 .pic-grid {
 	column-count: 3;
-	column-gap: 10px;
+	column-gap: 10px
 }
 
 .pic-grid figure {
 	break-inside: avoid;
-	margin-bottom: 10px;
+	margin-bottom: 10px
 }
 
 .pic-grid img {
 	width: 100%;
 	height: auto;
-	display: block;
+	display: block
 }
 
 /* 小尺寸设备样式 */
@@ -2484,7 +2484,7 @@ textarea:focus-within+.CtBoxBar {
 .theme-toggle-container {
 	display: flex;
 	align-items: center;
-	justify-content: center;
+	justify-content: center
 }
 
 .theme-toggle {
@@ -2498,18 +2498,18 @@ textarea:focus-within+.CtBoxBar {
 	align-items: center;
 	color: var(--nav-text-color);
 	justify-content: center;
-	cursor: pointer;
+	cursor: pointer
 }
 
 #theme-icon {
 	font-size: 24px;
-	color: var(--nav-text-color);
+	color: var(--nav-text-color)
 }
 
 /* Medium-zoom 图片 **/
 .medium-zoom-overlay,
 .medium-zoom-image--opened {
-	z-index: 999;
+	z-index: 999
 }
 
 
@@ -2520,23 +2520,23 @@ input:-webkit-autofill:focus,
 input:-webkit-autofill:active {
 	-webkit-box-shadow: 0 0 0 30px var(--card-color) inset !important;
 	-webkit-text-fill-color: var(--text-color) !important;
-	background-clip: content-box !important;
+	background-clip: content-box !important
 }
 
 /* 细滚动条 */
 *::-webkit-scrollbar {
 	width: 12px;
-	height: 12px;
+	height: 12px
 }
 
 *::-webkit-scrollbar-button {
 	width: 0px;
 	height: 0px;
-	display: none;
+	display: none
 }
 
 *::-webkit-scrollbar-corner {
-	background-color: transparent;
+	background-color: transparent
 }
 
 *::-webkit-scrollbar-thumb {
@@ -2552,20 +2552,20 @@ input:-webkit-autofill:active {
 
 /* 自定义选中文本的背景色和文字颜色 */
 ::selection {
-	background-color: color-mix(in srgb, var(--themecolor) 18%, transparent);
+	background-color: color-mix(in srgb, var(--themecolor) 18%, transparent)
 }
 
 /* 加密文章组件设计 */
 .protected-block.v3 {
 	margin: 2.6rem 0 3.2rem;
-	padding: 0.2rem 0;
+	padding: 0.2rem 0
 }
 
 .protected-head {
 	display: flex;
 	align-items: flex-start;
 	gap: .85rem;
-	margin-bottom: .9rem;
+	margin-bottom: .9rem
 }
 
 .protected-dot {
@@ -2574,19 +2574,19 @@ input:-webkit-autofill:active {
 	border-radius: 999px;
 	background: color-mix(in srgb, var(--themecolor) 80%, white);
 	box-shadow: 0 0 0 6px color-mix(in srgb, var(--themecolor) 18%, transparent);
-	transform: translateY(.45rem);
+	transform: translateY(.45rem)
 }
 
 .protected-title {
 	font-weight: 600;
 	font-size: 1rem;
-	line-height: 1.2;
+	line-height: 1.2
 }
 
 .protected-sub {
 	margin-top: .35rem;
 	font-size: .88rem;
-	color: color-mix(in srgb, var(--text-color) 45%, transparent);
+	color: color-mix(in srgb, var(--text-color) 45%, transparent)
 }
 
 .protected-divider {
@@ -2595,13 +2595,13 @@ input:-webkit-autofill:active {
 	background: linear-gradient(90deg,
 			transparent,
 			color-mix(in srgb, var(--border-color) 75%, transparent),
-			transparent);
+			transparent)
 }
 
 .protected-search {
 	width: min(520px, 100%);
 	gap: .65rem;
-	padding: .15rem .2rem;
+	padding: .15rem .2rem
 }
 
 .protected-input {
@@ -2610,7 +2610,7 @@ input:-webkit-autofill:active {
 	background: transparent;
 	outline: none;
 	padding: .7rem .85rem;
-	font-size: .95rem;
+	font-size: .95rem
 }
 
 .protected-btn {
@@ -2620,24 +2620,24 @@ input:-webkit-autofill:active {
 	background-color: color-mix(in srgb, var(--themecolor) 8%, var(--card-color));
 	color: color-mix(in srgb, var(--text-color) 78%, transparent);
 	cursor: pointer;
-	transition: background-color .18s ease, border-color .18s ease, color .18s ease;
+	transition: background-color .18s ease, border-color .18s ease, color .18s ease
 }
 
 .protected-btn:hover {
 	background-color: color-mix(in srgb, var(--themecolor) 12%, var(--card-color));
 	border-color: color-mix(in srgb, var(--themecolor) 35%, var(--border-color));
-	color: color-mix(in srgb, var(--text-color) 86%, transparent);
+	color: color-mix(in srgb, var(--text-color) 86%, transparent)
 }
 
 .protected-btn:active {
 	background-color: color-mix(in srgb, var(--themecolor) 16%, var(--card-color));
-	border-color: color-mix(in srgb, var(--themecolor) 45%, var(--border-color));
+	border-color: color-mix(in srgb, var(--themecolor) 45%, var(--border-color))
 }
 
 .protected-btn:focus-visible {
 	outline: none;
 	border-color: var(--themecolor);
-	background-color: color-mix(in srgb, var(--themecolor) 10%, var(--card-color));
+	background-color: color-mix(in srgb, var(--themecolor) 10%, var(--card-color))
 }
 
 
@@ -2645,7 +2645,7 @@ input:-webkit-autofill:active {
 	width: min(520px, 100%);
 	margin-top: 1.25rem;
 	display: grid;
-	gap: .55rem;
+	gap: .55rem
 }
 
 .protected-ghost span {
@@ -2655,47 +2655,47 @@ input:-webkit-autofill:active {
 	background: linear-gradient(90deg,
 			color-mix(in srgb, var(--border-color) 50%, transparent),
 			transparent);
-	opacity: .55;
+	opacity: .55
 }
 
 .protected-ghost span:nth-child(1) {
-	width: 88%;
+	width: 88%
 }
 
 .protected-ghost span:nth-child(2) {
-	width: 76%;
+	width: 76%
 }
 
 .protected-ghost span:nth-child(3) {
-	width: 64%;
+	width: 64%
 }
 
 .protected-ghost span:nth-child(4) {
-	width: 50%;
+	width: 50%
 }
 
 /* 正文及 PicGrid 画廊图片圆角 */
 .post-content img,
 .pic-grid img {
-	border-radius: 0.5rem;
+	border-radius: 0.5rem
 }
 
 /* 超链接颜色 **/
 .post-content a {
-	color: var(--themecolor);
+	color: var(--themecolor)
 }
 
 .post-content a:hover {
-	color: var(--themehovercolor);
+	color: var(--themehovercolor)
 }
 
 /* Timeline 链接颜色覆盖 */
 .timeline .timeline-title a {
-	color: var(--text-color) !important;
+	color: var(--text-color) !important
 }
 
 .timeline .timeline-title a:hover {
-	color: var(--themehovercolor) !important;
+	color: var(--themehovercolor) !important
 }
 /* content-visibility：正文按块，评论按条 */
 @supports (content-visibility: auto) {
