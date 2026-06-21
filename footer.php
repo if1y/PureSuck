@@ -1,7 +1,7 @@
 <?php if (!defined('__TYPECHO_ROOT_DIR__'))
   exit; ?>
 <?php
-$currentPage = isset($this->_currentPage) ? max(1, (int)$this->_currentPage) : 1;
+$currentPage = max(1, (int)$this->_currentPage);
 $pageSize = (isset($this->parameter) && isset($this->parameter->pageSize)) ? (int)$this->parameter->pageSize : 0;
 $totalItems = 0;
 $showPager = $this->is('index') || $this->is('archive');
@@ -22,13 +22,16 @@ if ($totalPages < 1) {
 <?php if ($showPager): ?>
   <nav class="nav main-pager" role="navigation"
     aria-label="<?= $this->is('index') ? '文章列表分页导航' : '归档列表分页导航'; ?>" data-js="pager">
-    <span class="nav-item-alt">
-      第 <?= $currentPage; ?> 页 / 共 <?= $totalPages; ?> 页
-    </span>
-    <div class="nav nav--pager">
-      <?php $this->pageLink('上一页', 'prev'); ?>
-      <i class="icon-record-outline"></i>
-      <?php $this->pageLink('下一页', 'next'); ?>
+    <div class="main-pager-inner">
+      <span class="main-pager-nav main-pager-prev">
+        <?php $this->pageLink('上一页', 'prev'); ?>
+      </span>
+      <span class="main-pager-info">
+        第 <?= $currentPage; ?> 页 / 共 <?= $totalPages; ?> 页
+      </span>
+      <span class="main-pager-nav main-pager-next">
+        <?php $this->pageLink('下一页', 'next'); ?>
+      </span>
     </div>
   </nav>
   <footer class="nav main-lastinfo" role="contentinfo" aria-label="站点页脚信息">
