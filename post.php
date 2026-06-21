@@ -6,6 +6,7 @@
 
     <?php
     $hasImg = $this->fields->img ? true : false;
+    $postViews = getPostView($this);
     ?>
     <article class="post <?= $hasImg ? 'post--photo post--cover' : 'post--text'; ?> post--single main-item" data-ps-post-key="<?= $this->cid; ?>">
         <div class="post-inner">
@@ -51,28 +52,30 @@
                     </h1>
                     <div class="inner-post-wrapper">
                         <div class="meta post-meta">
-                            <a itemprop="datePublished" href="<?php $this->permalink() ?>"
-                                class="icon-ui icon-ui-date meta-item meta-date">
+                            <span class="icon-ui icon-ui-date meta-item meta-date">
                                 <span class="meta-count">
                                     <?php $this->date(); ?>
                                 </span>
-                            </a>
-
-                            <a href="<?php $this->permalink() ?>#comments"
-                                class="icon-ui icon-ui-comment meta-item meta-comment">
-                                <?php $this->commentsNum('暂无评论', '1 条评论', '%d 条评论'); ?>
-                            </a>
+                            </span>
+                            <span class="meta-item-group">
+                                <span class="icon-ui icon-ui-views meta-item meta-views">
+                                    <?= formatNumber($postViews) ?>
+                                </span>
+                                <a href="<?php $this->permalink() ?>#comments"
+                                    class="icon-ui icon-ui-comment meta-item meta-comment">
+                                    <?= formatNumber($this->commentsNum) ?>
+                                </a>
+                            </span>
                         </div>
 
                         <?php if (!$this->hidden && $this->options->showWordCount == '1'): ?>
                             <?php
                             $wordCount = getMarkdownCharacters($this->text);
                             $readingTime = ceil($wordCount / 300); //假设每分钟300字
-                            $postViews = getPostView($this);
                             ?>
                             <div class="meta post-meta">
                                 <div class="icon-record-outline">
-                                    <?= $wordCount ?>字 · <?= $readingTime ?>分钟 · <?= $postViews ?>&nbsp;阅读
+                                    全文共&nbsp;<?= $wordCount ?>&nbsp;字，阅读约&nbsp;<?= $readingTime ?>&nbsp;分钟
                                 </div>
                             </div>
                         <?php endif; ?>

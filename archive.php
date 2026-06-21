@@ -15,6 +15,7 @@
         <?php while ($this->next()): ?>
             <?php
             $hasImg = $this->fields->img ? true : false;
+            $postViews = getPostView($this);
             ?>
             <article class="post <?= $hasImg ? 'post--photo post--cover' : 'post--text'; ?> post--index main-item" data-ps-post-key="<?= $this->cid; ?>">
                 <div class="post-inner">
@@ -74,16 +75,20 @@
                     <footer class="post-item post-footer">
                         <div class="wrapper post-wrapper">
                             <div class="meta post-meta">
-                                <a itemprop="datePublished" href="<?php $this->permalink() ?>"
-                                    class="icon-ui icon-ui-date meta-item meta-date">
+                                <span class="icon-ui icon-ui-date meta-item meta-date">
                                     <span class="meta-count">
                                         <?php $this->date(); ?>
                                     </span>
-                                </a>
-                                <a href="<?php $this->permalink() ?>#comments"
-                                    class="icon-ui icon-ui-comment meta-item meta-comment">
-                                    <?php $this->commentsNum('暂无评论', '1 条评论', '%d 条评论'); ?>
-                                </a>
+                                </span>
+                                <span class="meta-item-group">
+                                    <span class="icon-ui icon-ui-views meta-item meta-views">
+                                        <?= formatNumber($postViews) ?>
+                                    </span>
+                                    <a href="<?php $this->permalink() ?>#comments"
+                                        class="icon-ui icon-ui-comment meta-item meta-comment">
+                                        <?= formatNumber($this->commentsNum) ?>
+                                    </a>
+                                </span>
                             </div>
                         </div>
                     </footer>

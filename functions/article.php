@@ -1104,6 +1104,27 @@ function getMarkdownCharacters($content)
     return count($matches[0]);
 }
 
+// 数字格式化：<=999 原样，>=1000 转 K（1位小数），>=10000 转 W（1位小数）
+function formatNumber($num)
+{
+    $num = (int)$num;
+    if ($num < 1000) {
+        return (string)$num;
+    }
+    if ($num < 10000) {
+        $val = round($num / 1000, 1);
+        if ($val == (int)$val) {
+            return (int)$val . 'K';
+        }
+        return rtrim(rtrim(sprintf('%.1f', $val), '0'), '.') . 'K';
+    }
+    $val = round($num / 10000, 1);
+    if ($val == (int)$val) {
+        return (int)$val . 'W';
+    }
+    return rtrim(rtrim(sprintf('%.1f', $val), '0'), '.') . 'W';
+}
+
 // 文章阅读量统计（UV）
 function getPostView($archive)
 {

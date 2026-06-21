@@ -235,6 +235,15 @@ table tr:has(td):hover {
 	content: "\E80D"
 }
 
+.icon-ui-views:before {
+	content: "\E821"
+}
+
+.meta-item-group {
+	display: inline-flex;
+	align-items: center
+}
+
 code,
 kbd {
 	position: relative;
@@ -885,15 +894,18 @@ ul,
 	width: 100%
 }
 
-.meta>.meta-item:last-child {
-	padding-right: 0
-}
-
 .meta-item {
 	display: inline;
 	padding-right: 8px;
-	white-space: nowrap;
+	white-space: nowrap
+}
+
+.meta-comment {
 	cursor: pointer
+}
+
+.meta-item-group .meta-item:last-child {
+	padding-right: 0
 }
 
 .meta-date {
@@ -1007,7 +1019,7 @@ body>.wrapper {
 		margin-bottom: 4px
 	}
 
-	.post-meta .meta-item {
+	.post-meta .meta-views {
 		padding-right: 16px
 	}
 
@@ -1409,8 +1421,7 @@ body>.wrapper {
 }
 
 .post-meta .meta-item.icon::before {
-	font-size: 22px;
-	transition: color .3s ease
+	font-size: 22px
 }
 
 @media (min-width:386px) {
@@ -1704,12 +1715,12 @@ strong {
 	transition: color .3s ease
 }
 
-.meta-item:hover {
+.meta-comment:hover {
 	color: #999
 }
 
-.meta-item:hover .icon-ui:before,
-.meta-item:hover:before {
+.meta-comment:hover .icon-ui:before,
+.meta-comment:hover:before {
 	color: #999
 }
 
