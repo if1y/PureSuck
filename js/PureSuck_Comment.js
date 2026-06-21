@@ -320,6 +320,15 @@
             }, 560);
         }
     }
+    function isCaptchaEnabled() {
+        return PS && PS.features ? Boolean(PS.features.showCaptcha) : false;
+    }
+
+    function isVisitorForm(form) {
+        if (!form) form = getCommentFormElement(document);
+        return form ? !!form.querySelector('#author, input[name="author"]') : true;
+    }
+
     function isCommentModerationEnabled(scope) {
         const fromConfig = PS && PS.config && PS.config.features
             ? PS.config.features.commentsRequireModeration
@@ -710,8 +719,61 @@
         window.location.href = url;
     }
 
+    function generateCaptcha() {
+        var op, a, b, answer;
+        var r = Math.random();
+        if (r < 0.25) {
+            op = '+';
+            a = Math.floor(Math.random() * 90) + 10;
+            b = Math.floor(Math.random() * 90) + 10;
+            answer = a + b;
+        } else if (r < 0.50) {
+            op = '-';
+            a = Math.floor(Math.random() * 90) + 10;
+            b = Math.floor(Math.random() * (a - 1)) + 1;
+            answer = a - b;
+        } else if (r < 0.75) {
+            op = '×';
+            a = Math.floor(Math.random() * 9) + 1;
+            b = Math.floor(Math.random() * 9) + 1;
+            answer = a * b;
+        } else {
+            op = '÷';
+            b = Math.floor(Math.random() * 9) + 1;
+            var quotient = Math.floor(Math.random() * 9) + 1;
+            a = b * quotient;
+            answer = quotient;
+        }
+        return {
+            question: a + ' ' + op + ' ' + b + ' = ?',
+            answer: answer
+        };
+    }
+
+    function refreshCaptcha() {
+        var captchaInput = document.getElementById('captcha');
+        if (!captchaInput) return;
+        var data = generateCaptcha();
+        captchaInput.placeholder = data.question;
+        captchaInput.value = '';
+        captchaInput.dataset.captchaAnswer = String(data.answer);
+    }
+
     async function handleCommentSubmit(form, lifecycle) {
         if (!form || lifecycle.submitting) return;
+
+        if (isCaptchaEnabled() && isVisitorForm(form)) {
+            var captchaInput = document.getElementById('captcha');
+            if (captchaInput) {
+                var userAnswer = captchaInput.value.trim();
+                var correctAnswer = captchaInput.dataset.captchaAnswer;
+                if (!userAnswer || !correctAnswer || parseInt(userAnswer, 10) !== parseInt(correctAnswer, 10)) {
+                    showToast('验证码计算错误！', 'error');
+                    refreshCaptcha();
+                    return;
+                }
+            }
+        }
 
         const action = form.getAttribute('action') || window.location.href;
         if (!isSameOriginUrl(action)) return;
@@ -796,6 +858,10 @@
 
             const textarea = form.querySelector('textarea[name="text"], #textarea');
             if (textarea) textarea.value = '';
+
+            if (isCaptchaEnabled() && isVisitorForm(form)) {
+                refreshCaptcha();
+            }
 
             let finalHash = commentHash;
             if (!resolveHashTarget(finalHash, document)) {
@@ -1010,6 +1076,10 @@
 
         cleanups.push(bindCommentPagination(scope, lifecycle));
         cleanups.push(bindCommentHashSync(scope, context || {}));
+
+        if (isCaptchaEnabled() && isVisitorForm()) {
+            refreshCaptcha();
+        }
 
         const form = getCommentFormElement(scope);
         if (form) {

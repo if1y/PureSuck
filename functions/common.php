@@ -153,7 +153,8 @@ function getPSRuntimeConfig($archive = null)
     $features = [
         'showTOC' => psOptionEnabled($options->showTOC ?? '1', true),
         'zoomUseHQ' => psOptionEnabled($options->zoomUseHQ ?? '0', false),
-        'commentsRequireModeration' => psOptionEnabled($options->commentsRequireModeration ?? '0', false)
+        'commentsRequireModeration' => psOptionEnabled($options->commentsRequireModeration ?? '0', false),
+        'showCaptcha' => psOptionEnabled($options->showCaptcha ?? '0', false)
     ];
 
     $pageType = 'list';
@@ -581,9 +582,19 @@ function themeConfig($form)
         array('1' => _t('开启'), '0' => _t('关闭')),
         '0',
         _t('图片放大时切换高清图（实验）'),
-        _t('默认关闭。开启后仅对带 data-zoom-src 的图片生效，会在点击放大时预加载高清图并再切换。')
+        _t('默认关闭。开启后仅对带 data-zoom-src 的图片生效，会在点击放大时预加载高清图并再切换')
     );
     $form->addInput($zoomUseHQ);
+
+    // 评论验证码功能
+    $showCaptcha = new Typecho_Widget_Helper_Form_Element_Radio(
+        'showCaptcha',
+        array('1' => _t('开启'), '0' => _t('关闭')),
+        '0',
+        _t('开启评论算数验证码'),
+        _t('默认关闭。开启后评论时需计算简单的数学题')
+    );
+    $form->addInput($showCaptcha);
 
     // 分类模块显示选项
     $showCategory = new Typecho_Widget_Helper_Form_Element_Radio(
