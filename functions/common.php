@@ -551,8 +551,8 @@ function themeConfig($form)
         'showPostTags',
         array('1' => _t('显示'), '0' => _t('隐藏')),
         '0',
-        _t('主标题上的分类标签'),
-        _t('在主标题上的分类按钮右侧跟随展示标签，不超过一行')
+        _t('主标题上展示标签'),
+        _t('在主标题上的分类按钮右侧展示标签，不超过一行')
     );
     $form->addInput($showPostTags);
 
