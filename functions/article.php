@@ -1085,6 +1085,7 @@ function parseOwOcodes($content)
 
                 $owoMap[$shortcode] = $imgTag;
             }
+            
         }
     }
 
@@ -1101,4 +1102,41 @@ function getMarkdownCharacters($content)
     $content = preg_replace('/```[\s\S]*?```/m', '', $content);
     preg_match_all('/[\x{4e00}-\x{9fa5}]/u', $content, $matches);
     return count($matches[0]);
+}
+
+// 文章阅读量统计（UV）
+function getPostView($archive)
+{
+    $cid = $archive->cid;
+    $db = Typecho_Db::get();
+    $prefix = $db->getPrefix();
+
+    // 检查 views 字段是否存在，不存在则创建
+    if (!array_key_exists('views', $db->fetchRow($db->select()->from('table.contents')))) {
+        $db->query('ALTER TABLE `' . $prefix . 'contents` ADD `views` INT(10) DEFAULT 0;');
+        return 0;
+    }
+
+    $row = $db->fetchRow($db->select('views')->from('table.contents')->where('cid = ?', $cid));
+
+    // 只在文章/页面详情页触发阅读计数
+    if ($archive->is('single')) {
+        $views = Typecho_Cookie::get('extend_contents_views');
+
+        if (empty($views))
+            $views = array();
+        else
+            $views = explode(',', $views);
+
+        if (!in_array($cid, $views)) {
+            $db->query($db->update('table.contents')->rows(array('views' => (int)$row['views'] + 1))->where('cid = ?', $cid));
+            array_push($views, $cid);
+            $views = implode(',', $views);
+            Typecho_Cookie::set('extend_contents_views', $views); // 记录查看 Cookie
+        }
+    }
+
+    // 重新读取确保返回最新值
+    $row = $db->fetchRow($db->select('views')->from('table.contents')->where('cid = ?', $cid));
+    return (int)$row['views'];
 }

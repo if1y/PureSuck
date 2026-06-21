@@ -68,11 +68,11 @@
                             <?php
                             $wordCount = getMarkdownCharacters($this->text);
                             $readingTime = ceil($wordCount / 300); //假设每分钟300字
+                            $postViews = getPostView($this);
                             ?>
                             <div class="meta post-meta">
                                 <div class="icon-record-outline">
-                                    全文共&nbsp;<?= $wordCount ?>&nbsp;字，
-                                    阅读约&nbsp;<?= $readingTime ?>&nbsp;分钟
+                                    <?= $wordCount ?>字 · <?= $readingTime ?>分钟 · <?= $postViews ?>&nbsp;阅读
                                 </div>
                             </div>
                         <?php endif; ?>
