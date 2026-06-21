@@ -61,27 +61,27 @@
                     <div class="ainfo">
                         <div class="tbox-container">
                             <div class="tbox">
-                                <input type="text" name="author" id="author" class="ci" placeholder="您的昵称"
+                                <input type="text" name="author" id="author" class="ci" placeholder="昵称 *"
                                     value="<?php $this->remember('author'); ?>" required="">
                             </div>
                             <div class="tbox">
-                                <input type="email" name="mail" id="mail" class="ci" placeholder="邮箱地址"
+                                <input type="email" name="mail" id="mail" class="ci" placeholder="邮箱 *"
                                     value="<?php $this->remember('mail'); ?>" required="">
                             </div>
                             <div class="tbox">
-                                <input type="url" name="url" id="url" class="ci" placeholder="您的网站（选填）"
+                                <input type="url" name="url" id="url" class="ci" placeholder="网站"
                                     value="<?php $this->remember('url'); ?>">
                             </div>
                         </div>
                     </div>
                 <?php endif; ?>
                 <div class="tbox">
-                    <textarea name="text" id="textarea" class="ci OwO-textarea" placeholder="请在这里输入您的评论内容"
+                    <textarea name="text" id="textarea" class="ci OwO-textarea" placeholder="说点什么……"
                         data-owo-id="comment-textarea-<?php $this->cid(); ?>" required><?php $this->remember('text'); ?></textarea>
                     <div class="CtBoxBar">
                         <div class="left-bar">
                             <div class="OwO-wrapper">
-                                <?= renderOwoPanel('OωO表情'); ?>
+                                <?= renderOwoPanel('OωO'); ?> <!-- 表情按钮 -->
                             </div>
                             <!-- 未来可以在这里添加更多内容 -->
                         </div>
