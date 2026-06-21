@@ -162,10 +162,10 @@ hr::before {
 button,
 input,
 textarea {
+	-webkit-text-size-adjust: 100%;  /* 禁止 iOS Safari 自动缩放 < 16px 的输入框 */
 	font-family: inherit;
 	font-size: 100%;
 	margin: 0;
-	-webkit-text-size-adjust: 100%  /* 禁止 iOS Safari 自动缩放 < 16px 的输入框 */
 }
 
 input {
@@ -622,7 +622,7 @@ pre,
 ul,
 .cp p {
 	margin-top: 0;
-	margin-bottom: 8px
+	margin-bottom: 12px
 }
 
 
@@ -1038,7 +1038,7 @@ body>.wrapper {
 	ul,
 	hr,
 	.cp p {
-		margin-bottom: 12px
+		margin-bottom: 18px
 	}
 }
 
