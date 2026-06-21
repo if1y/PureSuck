@@ -724,13 +724,14 @@
         var r = Math.random();
         if (r < 0.25) {
             op = '+';
-            a = Math.floor(Math.random() * 90) + 10;
-            b = Math.floor(Math.random() * 90) + 10;
+            a = Math.floor(Math.random() * 9) + 1;
+            b = Math.floor(Math.random() * 9) + 1;
             answer = a + b;
         } else if (r < 0.50) {
             op = '-';
-            a = Math.floor(Math.random() * 90) + 10;
-            b = Math.floor(Math.random() * (a - 1)) + 1;
+            a = Math.floor(Math.random() * 9) + 1;
+            b = Math.floor(Math.random() * 9) + 1;
+            if (a < b) { var t = a; a = b; b = t; }
             answer = a - b;
         } else if (r < 0.75) {
             op = '×';
