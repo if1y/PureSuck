@@ -1472,7 +1472,7 @@ body>.wrapper {
 	}
 
 	.post-body {
-		margin-top: -55px
+		margin-top: -59px
 	}
 
 	.post-title {
@@ -1485,7 +1485,7 @@ body>.wrapper {
 
 	.post-comments .post-wrapper:before,
 	.post-footer .post-wrapper:before {
-		top: -45px
+		top: -32px
 	}
 
 	.post-footer {
@@ -1503,7 +1503,7 @@ body>.wrapper {
 	}
 
 	.post-body {
-		margin-top: -56px
+		margin-top: -50px
 	}
 
 	.post-item {
@@ -1526,7 +1526,7 @@ body>.wrapper {
 
 	.post-comments .post-wrapper:before,
 	.post-footer .post-wrapper:before {
-		top: -35px
+		top: -22px
 	}
 }
 
@@ -1539,6 +1539,10 @@ body>.wrapper {
 		width: 100%
 	}
 
+	.post-body {
+		margin-top: -60px
+	}
+
 	.post-title {
 		margin-top: -13px;
 	}
@@ -1548,12 +1552,19 @@ body>.wrapper {
 		padding: 45px 45px 45px 45px;
 	}
 
+	.post-footer {
+		padding-top: 22px
+	}
+
 	.post-more {
 		margin-top: 24px
 	}
 
-	.post-comments .post-wrapper:before,
 	.post-footer .post-wrapper:before {
+		top: -22px
+	}
+
+	.post-comments .post-wrapper:before {
 		top: -45px
 	}
 }
