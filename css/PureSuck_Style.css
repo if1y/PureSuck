@@ -221,7 +221,7 @@ table tr:has(td):hover {
 }
 
 .icon-ui:before {
-	vertical-align: bottom;
+	vertical-align: middle;
 	font-size: 20px;
 	margin: 4px;
 	transition: color .3s ease
