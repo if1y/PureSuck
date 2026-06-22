@@ -16,15 +16,7 @@ $this->need('header.php');
     ?>
     <article class="post <?= $hasImg ? 'post--photo post--cover' : 'post--text'; ?> main-item" data-ps-page-shell="page">
         <div class="post-inner">
-            <header class="post-item post-header  <?= $hasImg ? 'no-bg' : ''; ?>">
-                <div class="wrapper post-wrapper">
-                    <div class="avatar post-author">
-                        <img src="<?= $this->options->authorAvatar ?: $this->options->themeUrl('images/avatar.webp'); ?>"
-                            alt="作者头像" class="avatar-item avatar-img">
-                        <span class="avatar-item"><?php $this->author(); ?></span>
-                    </div>
-                </div>
-            </header>
+            <header class="post-item post-header  <?= $hasImg ? 'no-bg' : ''; ?>"></header>
 
             <!-- 大图样式 -->
             <?php if ($hasImg): ?>
