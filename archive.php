@@ -101,11 +101,11 @@
                 <section class="post-item post-body" style="margin-top: 0px;">
                     <div class="wrapper post-wrapper">
                         <p style="text-align: center;">
-                            <img src="<?php $this->options->themeUrl('images/Zai_Cry.png'); ?>" id="ZaiJPG" alt="没有适合的结果"
+                            <img src="<?php $this->options->themeUrl('images/error.webp'); ?>" id="error""
                                 style="display: block; margin: 0 auto;max-height: 200px;">
                         </p>
-                        <p style="text-align: center;"><?php _e('肥肠抱歉，没有找到适合的结果( ´ﾟДﾟ`)'); ?></p>
-                        <p style="text-align: center;"><?php _e('不妨在本站到处逛逛？'); ?></p>
+                        <p style="text-align: center;"><?php _e('抱歉，没有找到匹配的结果 ( ´ﾟДﾟ`)'); ?></p>
+                        <p style="text-align: center;"><?php _e('请更换关键词重试'); ?></p>
                     </div>
 
                 </section>
