@@ -1634,36 +1634,35 @@ a:hover {
 .inner-post-wrapper a:not(.github-card):not(.ps-post-card):not(.friendsboard-list a):not(.meta.post-meta a):not(.cloud-container a) {
 	border-radius: 0.35rem;
 	position: relative;
-	display: inline-block;
-	overflow-wrap: break-word;
+	display: inline;
+	overflow-wrap: anywhere;
 	word-break: break-all;
 	text-decoration: none;
-	max-width: 100%;
-	color: var(--themecolor)
+	color: var(--themecolor);
+	box-decoration-break: clone;
+	-webkit-box-decoration-break: clone;
+	background-image: linear-gradient(color-mix(in srgb, var(--themecolor) 25%, transparent), color-mix(in srgb, var(--themecolor) 25%, transparent));
+	background-repeat: no-repeat;
+	background-size: 0% 88%;
+	background-position: 0 52%;
+	opacity: 1;
+	padding: 0 0.08em;
+	transition: color .3s ease, background-size .3s ease, background-image .3s ease, opacity .3s ease
 }
 
 .inner-post-wrapper a:not(.github-card):not(.ps-post-card):not(.friendsboard-list a):not(.meta.post-meta a):not(.cloud-container a)::before {
-	content: '';
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	background-color: var(--themecolor);
-	border-radius: 0.4rem;
-	transform: scale(0.8);
-	transition: transform .3s ease, opacity .3s ease;
-	opacity: 0
+	content: none
 }
 
-.inner-post-wrapper a:not(.github-card):not(.ps-post-card):not(.friendsboard-list a):not(.meta.post-meta a):not(.cloud-container a):hover::before {
-	transform: scale(1.05, 0.88);
-	opacity: 0.25
+.inner-post-wrapper a:not(.github-card):not(.ps-post-card):not(.friendsboard-list a):not(.meta.post-meta a):not(.cloud-container a):hover {
+	background-size: 100% 88%;
+	opacity: .92
 }
 
-.inner-post-wrapper a:not(.github-card):not(.ps-post-card):not(.friendsboard-list a):not(.meta.post-meta a):not(.cloud-container a):active::before {
-	transform: scale(1.03, 0.8);
-	opacity: 0.4
+.inner-post-wrapper a:not(.github-card):not(.ps-post-card):not(.friendsboard-list a):not(.meta.post-meta a):not(.cloud-container a):active {
+	background-image: linear-gradient(color-mix(in srgb, var(--themecolor) 38%, transparent), color-mix(in srgb, var(--themecolor) 38%, transparent));
+	background-size: 100% 88%;
+	opacity: .88
 }
 
 .inner-post-wrapper a:not(.github-card):not(.ps-post-card):not(.friendsboard-list a):not(.meta.post-meta a):not(.cloud-container a)::after {
