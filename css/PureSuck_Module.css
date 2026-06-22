@@ -1995,24 +1995,24 @@ html[data-theme="dark"] .tab-header.dir-left .tab-indicator {
 
 /* 404 页面 */
 .ps-404-layout .ps-404-body {
-    margin-top: 0;
+    margin-top: 0
 }
 
 .ps-404-card {
     text-align: center;
     padding-top: 4px;
-    padding-bottom: 10px;
+    padding-bottom: 10px
 }
 
 .ps-404-image-wrap {
-    margin: 0 0 8px;
+    margin: 0 0 8px
 }
 
 .ps-404-image {
     display: block;
     margin: 0 auto;
     max-height: 190px;
-    width: auto;
+    width: auto
 }
 
 .ps-404-code {
@@ -2021,23 +2021,21 @@ html[data-theme="dark"] .tab-header.dir-left .tab-indicator {
     line-height: 1;
     font-weight: 700;
     letter-spacing: 1px;
-    color: var(--themecolor);
+    color: var(--themecolor)
 }
 
 .ps-404-title {
     margin: 0 0 10px;
     font-size: 1.5rem;
-    color: var(--text-color);
+    color: var(--text-color)
 }
 
-.ps-404-desc {
-    margin: 0 auto 10px;
-    max-width: 560px;
-    color: var(--text2-color);
-    line-height: 1.85;
+
+.ps-404-button {
+    margin-top: 14px
 }
 
-.ps-404-tip {
-    margin: 14px 0 0;
-    color: var(--text2-color);
+.ps-404-button:hover,
+.ps-404-button:focus-visible {
+    color: var(--pure-color)
 }
