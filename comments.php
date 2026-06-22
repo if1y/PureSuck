@@ -10,7 +10,7 @@
         ?>
         <li id="li-<?php $comments->theId(); ?>" class="<?= $cl; ?>">
             <div id="<?php $comments->theId(); ?>">
-                <?php $avatarUrl = 'https://cn.cravatar.com/avatar/' . md5(strtolower($comments->mail)) . '?s=128&d=mm'; ?>
+                <?php $avatarUrl = psGetAvatarUrl($comments->mail); ?>
                 <img class="avatarcc" src="<?= $avatarUrl; ?>" loading="lazy" decoding="async" alt="评论头像" />
                 <div class="cp">
                     <?php

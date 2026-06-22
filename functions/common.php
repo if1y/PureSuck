@@ -74,6 +74,35 @@ function getStaticURL($path)
     echo resolveStaticURL($path);
 }
 
+function psGetAvatarBase()
+{
+    $options = Typecho_Widget::widget('Widget_Options');
+    $source = isset($options->avatarSource) ? trim((string)$options->avatarSource) : 'cravatar';
+
+    $sourceMap = [
+        'cravatar' => 'https://cn.cravatar.com/avatar/',
+        'weavatar' => 'https://weavatar.com/avatar/',
+        'sepcdn' => 'https://cdn.sep.cc/avatar/',
+    ];
+
+    if ($source === 'custom') {
+        return isset($options->customAvatarSource) ? (string)$options->customAvatarSource : '';
+    }
+
+    return isset($sourceMap[$source]) ? $sourceMap[$source] : $sourceMap['cravatar'];
+}
+
+function psGetAvatarUrl($mail, $size = 64, $default = 'mm')
+{
+    $email = strtolower(trim((string)$mail));
+    $hash = md5($email);
+    $baseUrl = psGetAvatarBase();
+    $size = max(1, (int)$size);
+    $default = rawurlencode((string)$default);
+
+    return $baseUrl . $hash . '?s=' . $size . '&d=' . $default;
+}
+
 // 生成动态 CSS
 function generateDynamicCSS()
 {
@@ -419,13 +448,13 @@ function themeConfig($form)
     <input type="submit" name="type" class="btn btn-s" value="备份模板设置数据" />  <input type="submit" name="type" class="btn btn-s" value="还原模板设置数据" />  <input type="submit" name="type" class="btn btn-s" value="删除备份数据" /></form>
     </div>';
 
-    // 网页 favicon URL 配置项
+    // 网页 icon URL 配置项
     $logoUrl = new \Typecho\Widget\Helper\Form\Element\Text(
         'logoUrl',
         null,
         null,
         _t('favicon.ico 地址'),
-        _t('填写ico格式图片 URL 地址, 留空自动回落根目录的 favicon')
+        _t('填写ico格式图片 URL 地址, 在网站标题前加上一个图标')
     );
     $form->addInput($logoUrl);
 
@@ -458,16 +487,6 @@ function themeConfig($form)
         _t('点击头像时候跳转的网址，可以设置为引导页等，为空则为博客首页')
     );
     $form->addInput($logoIndexUrl);
-
-    //作者头像
-    $authorAvatar = new \Typecho\Widget\Helper\Form\Element\Text(
-        'authorAvatar',
-        null,
-        null,
-        _t('作者头像地址'),
-        _t('填写 JPG/PNG/Webp 等图片 URL 地址, 用于显示文章作者头像')
-    );
-    $form->addInput($authorAvatar);
 
     // 左侧描述
     $customDescription = new \Typecho\Widget\Helper\Form\Element\Textarea(
@@ -512,6 +531,31 @@ function themeConfig($form)
     );
     $form->addInput($staticCdn);
 
+    // Gravatar 头像源
+    $avatarSource = new Typecho_Widget_Helper_Form_Element_Radio(
+        'avatarSource',
+        array(
+            'cravatar' => _t('Cravatar'),
+            'weavatar' => _t('WeAvatar'),
+            'sepcdn' => _t('SepCDN'),
+            'custom' => _t('自定义'),
+        ),
+        'cravatar',
+        _t('Gravatar 头像源 CDN'),
+        _t('Gravatar 头像源使用的镜像，默认 Cravatar')
+    );
+    $form->addInput($avatarSource);
+
+    $customAvatarSource = new \Typecho\Widget\Helper\Form\Element\Text(
+        'customAvatarSource',
+        null,
+        null,
+        _t('Gravatar 头像源自定义'),
+        _t('地址格式 https://www.gravatar.com/avatar/')
+    );
+    $customAvatarSource->input->setAttribute('class', 'text w-100');
+    $form->addInput($customAvatarSource);
+
     // 网页底部信息
     $footerInfo = new \Typecho\Widget\Helper\Form\Element\Textarea(
         'footerInfo',
@@ -521,7 +565,6 @@ function themeConfig($form)
         _t('填写网页底部的自定义信息，可以包含HTML内容，用br标签换行')
     );
     $form->addInput($footerInfo);
-
 
     // Pjax回调函数（Swup）
     $PjaxScript = new \Typecho\Widget\Helper\Form\Element\Textarea(
@@ -533,7 +576,7 @@ function themeConfig($form)
     );
     $form->addInput($PjaxScript);
 
-    //主题样式细调
+    // 主题样式细调
     // 标题下的装饰线条
     $postTitleAfter = new Typecho_Widget_Helper_Form_Element_Radio(
         'postTitleAfter',
