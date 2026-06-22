@@ -419,13 +419,13 @@ function themeConfig($form)
     <input type="submit" name="type" class="btn btn-s" value="备份模板设置数据" />  <input type="submit" name="type" class="btn btn-s" value="还原模板设置数据" />  <input type="submit" name="type" class="btn btn-s" value="删除备份数据" /></form>
     </div>';
 
-    // 网页 icon URL 配置项
+    // 网页 favicon URL 配置项
     $logoUrl = new \Typecho\Widget\Helper\Form\Element\Text(
         'logoUrl',
         null,
         null,
         _t('favicon.ico 地址'),
-        _t('填写ico格式图片 URL 地址, 在网站标题前加上一个图标')
+        _t('填写ico格式图片 URL 地址, 留空自动回落根目录的 favicon')
     );
     $form->addInput($logoUrl);
 

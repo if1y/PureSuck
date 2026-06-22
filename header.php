@@ -63,9 +63,9 @@
     <link rel="stylesheet" href="<?= $this->options->themeUrl('css/fontello.css'); ?>">
 
     <!-- ICON Setting -->
-    <link rel="icon"
-        href="<?= isset($this->options->logoUrl) && $this->options->logoUrl ? $this->options->logoUrl : $this->options->themeUrl . '/images/avatar.ico'; ?>"
-        type="image/x-icon">
+    <?php if (isset($this->options->logoUrl) && $this->options->logoUrl): ?>
+        <link rel="icon" href="<?= $this->options->logoUrl; ?>" type="image/x-icon">
+    <?php endif; ?>
 
     <!-- 关键CSS同步加载（避免FOUC） -->
     <link rel="stylesheet" href="<?php $this->options->themeUrl('/css/PureSuck_Module.css'); ?>">
