@@ -1636,6 +1636,7 @@ a:hover {
 	position: relative;
 	display: inline-block;
 	overflow-wrap: break-word;
+	word-break: break-all;
 	text-decoration: none;
 	max-width: 100%;
 	color: var(--themecolor)
@@ -1956,7 +1957,8 @@ strong {
 	overflow: hidden;
 	padding: 1.5rem 0 .5rem;
 	border-bottom: 1px solid var(--line-color);
-	word-wrap: break-word
+	word-wrap: break-word;
+	word-break: break-all
 }
 
 .cp-waiting {
@@ -1974,7 +1976,8 @@ strong {
 .cp p {
 	margin: 0 0 0.72rem 0;
 	line-height: 1.8;
-	color: var(--text-color)
+	color: var(--text-color);
+	word-break: break-all
 }
 
 .cp>a:not(.cp-waiting a),
