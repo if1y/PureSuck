@@ -12,6 +12,8 @@ header('X-Robots-Tag: noindex, nofollow', true);
 <?php $this->need('header.php'); ?>
 
 <div class="wrapper ps-404-layout">
+    <h3 class="archive-title">错误</h3>
+    
     <article class="post post--text post--index main-item">
         <div class="post-inner">
             <section class="post-item post-body ps-404-body">
