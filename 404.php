@@ -20,7 +20,7 @@ header('X-Robots-Tag: noindex, nofollow', true);
                         <img src="<?php $this->options->themeUrl('images/error.webp'); ?>" id="error" class="ps-404-image">
                     </p>
                     <p class="ps-404-code">404 Not Found</p>
-                    <h1 class="ps-404-title">页面不存在</h1>
+                    <h1 class="ps-404-title">页面没找到</h1>
                     <a class="submit ps-404-button" href="<?php $this->options->siteUrl(); ?>">返回首页</a>
                 </div>
             </section>
