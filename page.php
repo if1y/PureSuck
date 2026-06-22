@@ -6,7 +6,6 @@
 
     <?php
     $hasImg = $this->fields->img ? true : false;
-    $postViews = getPostView($this);
     ?>
     <article class="post <?= $hasImg ? 'post--photo post--cover' : 'post--text'; ?> main-item" data-ps-page-shell="page">
         <div class="post-inner">
@@ -47,9 +46,6 @@
                                 </span>
                             </span>
                             <span class="meta-item-group">
-                                <span class="icon-ui icon-ui-views meta-item meta-views">
-                                    <?= formatNumber($postViews) ?>
-                                </span>
                                 <a href="<?php $this->permalink() ?>#comments"
                                     class="icon-ui icon-ui-comment meta-item meta-comment">
                                     <?= formatNumber($this->commentsNum) ?>

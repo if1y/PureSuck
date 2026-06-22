@@ -1128,6 +1128,10 @@ function formatNumber($num)
 // 文章阅读量统计（UV）
 function getPostView($archive)
 {
+    if (!$archive->is('post')) {
+        return 0;
+    }
+
     $cid = $archive->cid;
     $db = Typecho_Db::get();
     $prefix = $db->getPrefix();
@@ -1140,7 +1144,7 @@ function getPostView($archive)
 
     $row = $db->fetchRow($db->select('views')->from('table.contents')->where('cid = ?', $cid));
 
-    // 只在文章/页面详情页触发阅读计数
+    // 只在文章详情页触发阅读计数
     if ($archive->is('single')) {
         $views = Typecho_Cookie::get('extend_contents_views');
 
