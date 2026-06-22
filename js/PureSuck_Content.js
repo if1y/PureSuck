@@ -499,6 +499,40 @@
         };
     }
 
+    function isExternalLink(link) {
+        if (!(link instanceof HTMLAnchorElement)) return false;
+
+        const rawHref = String(link.getAttribute('href') || '').trim();
+        if (!rawHref) return false;
+        if (rawHref[0] === '#') return false;
+        if (/^(javascript|mailto|tel):/i.test(rawHref)) return false;
+
+        try {
+            const url = new URL(link.href, window.location.href);
+            return url.origin !== window.location.origin;
+        } catch (error) {
+            return false;
+        }
+    }
+
+    function enhanceExternalLinks(scope) {
+        const links = scope.querySelectorAll('a[href]');
+        links.forEach(function (link) {
+            if (!isExternalLink(link)) return;
+
+            link.setAttribute('target', '_blank');
+
+            const currentRel = String(link.getAttribute('rel') || '').trim();
+            const relTokens = currentRel ? currentRel.split(/\s+/) : [];
+            ['noopener', 'noreferrer'].forEach(function (token) {
+                if (relTokens.indexOf(token) === -1) {
+                    relTokens.push(token);
+                }
+            });
+            link.setAttribute('rel', relTokens.join(' ').trim());
+        });
+    }
+
     function attachMediumZoom(scope) {
         const images = Array.from(scope.querySelectorAll('[data-zoomable]'));
         if (!images.length) return Promise.resolve(null);
@@ -537,6 +571,7 @@
 
         bindCollapsiblePanels(scope);
         bindTabs(scope);
+        enhanceExternalLinks(scope);
 
         const cleanups = [
             function cleanupTabsInScope() {
