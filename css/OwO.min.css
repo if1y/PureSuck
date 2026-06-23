@@ -150,8 +150,10 @@
 
 .OwO .OwO-items-image .OwO-item img {
   display: block;
+  width: auto;
   max-width: 100%;
-  height: auto;
+  height: var(--owo-image-height, auto);
+  max-height: var(--owo-image-height, none);
   border-radius: .55rem;
 }
 

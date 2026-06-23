@@ -1053,8 +1053,8 @@ function parseOwOcodes($content)
                 ? trim($package['base'], '/') . '/'
                 : '';
 
-            $width = isset($package['width'])
-                ? htmlspecialchars($package['width'], ENT_QUOTES, 'UTF-8')
+            $height = isset($package['height'])
+                ? htmlspecialchars($package['height'], ENT_QUOTES, 'UTF-8')
                 : '';
 
             foreach ($package['container'] as $item) {
@@ -1077,9 +1077,17 @@ function parseOwOcodes($content)
                     ? htmlspecialchars($item['text'], ENT_QUOTES, 'UTF-8')
                     : '';
 
+                $styleParts = [];
+                if ($height) {
+                    $styleParts[] = 'height:' . $height;
+                    $styleParts[] = 'width:auto';
+                }
+                $style = $styleParts ? ' style="' . implode(';', $styleParts) . ';"' : '';
+
                 $imgTag = '<img src="'
                     . htmlspecialchars($imgUrl, ENT_QUOTES, 'UTF-8') . '"'
-                    . ($width ? ' width="' . $width . '"' : '')
+                    . ($height ? ' height="' . $height . '"' : '')
+                    . $style
                     . ' loading="lazy"'
                     . ' alt="' . $alt . '">';
 

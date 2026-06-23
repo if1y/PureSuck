@@ -69,7 +69,7 @@ function renderOwoPanel($logo = 'OωO表情') {
         $pkg = $data[$pkgName];
         $type = $pkg['type'] ?? 'emoticon';
         $items = $pkg['container'] ?? [];
-        $width = $pkg['width'] ?? null;
+        $height = $pkg['height'] ?? null;
         $base = $pkg['base'] ?? '';
 
         // 处理图片路径前缀
@@ -96,7 +96,11 @@ function renderOwoPanel($logo = 'OωO表情') {
                 if (!preg_match('#^(https?:)?//#', $icon) && !str_starts_with($icon, '/')) {
                     $imgSrc = $imgPrefix . $icon;
                 }
-                $style = $width ? ' style="width:' . htmlspecialchars($width) . '"' : '';
+                $styleParts = [];
+                if ($height) {
+                    $styleParts[] = '--owo-image-height:' . htmlspecialchars($height);
+                }
+                $style = $styleParts ? ' style="' . implode(';', $styleParts) . ';"' : '';
                 $html .= '<img src="' . htmlspecialchars($imgSrc) . '" alt="' . htmlspecialchars($text) . '" loading="lazy"' . $style . '>';
             } else {
                 // 文字表情（颜文字/emoji）
