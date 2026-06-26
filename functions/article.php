@@ -1133,43 +1133,32 @@ function formatNumber($num)
     return rtrim(rtrim(sprintf('%.1f', $val), '0'), '.') . 'W';
 }
 
-// 文章阅读量统计（UV）
+// 文章阅读量统计（UV + 原子自增）
 function getPostView($archive)
 {
-    if (!$archive->is('post')) {
-        return 0;
-    }
-
     $cid = $archive->cid;
     $db = Typecho_Db::get();
     $prefix = $db->getPrefix();
-
     // 检查 views 字段是否存在，不存在则创建
     if (!array_key_exists('views', $db->fetchRow($db->select()->from('table.contents')))) {
         $db->query('ALTER TABLE `' . $prefix . 'contents` ADD `views` INT(10) DEFAULT 0;');
         return 0;
     }
-
-    $row = $db->fetchRow($db->select('views')->from('table.contents')->where('cid = ?', $cid));
-
-    // 只在文章详情页触发阅读计数
+    // 只在文章/页面详情页触发阅读计数
     if ($archive->is('single')) {
         $views = Typecho_Cookie::get('extend_contents_views');
-
         if (empty($views))
             $views = array();
         else
             $views = explode(',', $views);
-
         if (!in_array($cid, $views)) {
-            $db->query($db->update('table.contents')->rows(array('views' => (int)$row['views'] + 1))->where('cid = ?', $cid));
+            $db->query('UPDATE `' . $prefix . 'contents` SET `views` = `views` + 1 WHERE `cid` = ' . intval($cid));
             array_push($views, $cid);
             $views = implode(',', $views);
-            Typecho_Cookie::set('extend_contents_views', $views); // 记录查看 Cookie
+            Typecho_Cookie::set('extend_contents_views', $views);
         }
     }
-
-    // 重新读取确保返回最新值
+    // 读取并返回最新值
     $row = $db->fetchRow($db->select('views')->from('table.contents')->where('cid = ?', $cid));
     return (int)$row['views'];
 }
