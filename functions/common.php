@@ -92,7 +92,7 @@ function psGetAvatarBase()
     return isset($sourceMap[$source]) ? $sourceMap[$source] : $sourceMap['cravatar'];
 }
 
-function psGetAvatarUrl($mail, $size = 64, $default = 'mm')
+function psGetAvatarUrl($mail, $size = 128, $default = 'mm')
 {
     $email = strtolower(trim((string)$mail));
     $hash = md5($email);
