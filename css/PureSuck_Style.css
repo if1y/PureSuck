@@ -1837,7 +1837,7 @@ strong {
 }
 
 .post.post--single .post-comments {
-	padding-top: 0;
+	padding-top: 8px;
 	padding-bottom: 24px
 }
 
