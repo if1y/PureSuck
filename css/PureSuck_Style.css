@@ -1611,13 +1611,11 @@ body>.wrapper {
 		margin-top: 24px
 	}
 
-	.post-footer .post-wrapper:before {
+	.post-footer .post-wrapper:before,
+	.post-comments .post-wrapper:before {
 		top: -22px
 	}
 
-	.post-comments .post-wrapper:before {
-		top: -45px
-	}
 }
 
 .post-title a,
@@ -1836,6 +1834,20 @@ strong {
 .post-comments .post-wrapper:before,
 .post-footer .post-wrapper:before {
 	border-top: 1px solid var(--line-color)
+}
+
+.post.post--single .post-comments {
+	padding-top: 0;
+	padding-bottom: 24px
+}
+
+.post[data-ps-page-shell="page"] .post-comments {
+	padding-top: 12px;
+	padding-bottom: 24px
+}
+
+.post[data-ps-page-shell="page"] .post-body {
+	padding-bottom: 12px
 }
 
 .post--cover .post-header {
@@ -2399,7 +2411,7 @@ textarea:focus-within+.CtBoxBar {
 	--_theme-line: color-mix(in srgb, var(--themecolor) 55%, var(--border-color));
 
 	position: relative;
-	margin: 2.8em 0 0;
+	margin: 0.8em 0 0;
 	padding: 22px 26px;
 
 	background-color: var(--card-color);
