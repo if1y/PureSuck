@@ -137,7 +137,7 @@ blockquote p:last-child {
 }
 
 hr {
-	margin: 3.2em 0;
+	margin: 1em 0;
 	border: none;
 	height: 14px;
 
@@ -446,7 +446,7 @@ h6::after {
 .p,
 body {
 	font-size: 1rem;
-	line-height: 1.85
+	line-height: 1.75
 }
 
 .header-about,
@@ -1043,7 +1043,6 @@ body>.wrapper {
 	p,
 	pre,
 	ul,
-	hr,
 	.cp p {
 		margin-bottom: 18px
 	}

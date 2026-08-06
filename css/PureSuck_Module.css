@@ -355,10 +355,9 @@
 
 /* 友链卡片 */
 .friendsboard-list {
-    display: flex;
-    flex-flow: row wrap;
-    width: calc(100% + 16px);
-    margin-left: -16px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
     padding: 4px;
     margin-top: -4px;
     transition: scale 0.3s ease;
@@ -389,10 +388,6 @@
 .friendsboard-item {
     position: relative;
     display: block;
-
-    width: calc(33.3333% - 16px);
-    margin-left: 16px;
-    margin-bottom: 20px;
 
     padding: 16px 18px 18px 18px;
     border-radius: 0.6rem;
@@ -515,10 +510,6 @@
     line-height: 1.65;
     color: var(--text2-color);
 
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-
     transition: color 0.2s ease;
 }
 
@@ -591,14 +582,17 @@
 }
 
 @media screen and (max-width: 1300px) {
-    .friendsboard-item {
-        width: calc(50% - 16px);
+    .friendsboard-list {
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
 @media screen and (max-width: 450px) {
+    .friendsboard-list {
+        grid-template-columns: 1fr;
+    }
+
     .friendsboard-item {
-        width: calc(100% - 16px);
         padding: 18px 18px 20px;
     }
 }
@@ -1131,7 +1125,7 @@
 }
 /* 可折叠面板 */
 .collapsible-panel {
-    margin: 36px 0;
+    margin: 0.8em 0;
     border: 1px solid var(--line-color);
     border-radius: 0.9rem;
     background-color: var(--card-color);
@@ -1207,9 +1201,9 @@
 }
 
 .collapsible-details {
-    padding: 22px 24px 28px;
+    padding: 0 24px;
     color: var(--text2-color);
-    line-height: 1.85;
+    line-height: 1.75;
     transform: translateY(-6px);
     opacity: 0;
     /* 内容淡入略快于容器展开，形成层次感 */
@@ -1232,7 +1226,7 @@
 }
 
 .collapsible-panel + .collapsible-panel {
-    margin-top: 42px;
+    margin-top: 0.8em;
 }
 
 @media (hover: none) {
