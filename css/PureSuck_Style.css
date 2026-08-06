@@ -2195,7 +2195,7 @@ strong {
 
 .ci {
 	overflow: auto;
-	margin: 10px 0;
+	margin: 6px 0;
 	padding: 0.4rem 15px;
 	width: 100%;
 	border: 1px solid var(--border-color);
@@ -2226,7 +2226,7 @@ textarea.ci {
 }
 
 .CtBoxBar {
-	margin-top: 12px;
+	margin-top: 6px;
 	opacity: .8;
 	transition: opacity .3s ease
 }
@@ -2264,7 +2264,7 @@ textarea:focus-within+.CtBoxBar {
 	width: 110px;
 	height: 34px;
 	padding: 0 10px;
-	margin: 10px 8px 10px auto;
+	margin: 6px 8px 6px auto;
 	font-size: 0.85rem
 }
 
