@@ -1471,6 +1471,7 @@ body>.wrapper {
 	width: 100%
 }
 
+
 .post-meta .meta-item.icon::before {
 	font-size: 22px
 }
@@ -1509,6 +1510,7 @@ body>.wrapper {
 	.post-footer .post-wrapper:before {
 		top: -24px
 	}
+
 }
 
 
@@ -1538,6 +1540,7 @@ body>.wrapper {
 	.post-footer .post-wrapper:before {
 		top: -32px
 	}
+
 
 	.post-footer {
 		margin-top: -30px;
@@ -1579,6 +1582,7 @@ body>.wrapper {
 	.post-footer .post-wrapper:before {
 		top: -22px
 	}
+
 }
 
 @media (min-width:1400px) {
@@ -2241,7 +2245,8 @@ textarea:focus-within+.CtBoxBar {
     align-items: center;
     justify-content: center;
 	height: 34px;
-	padding: 8px 28px;
+	padding: 8px 16px;
+	min-width: 64px;
 	border-radius: .65rem;
 	background: var(--themecolor);
 	color: var(--pure-color);

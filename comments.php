@@ -88,7 +88,7 @@
                         <?php if (psOptionEnabled($this->options->showCaptcha ?? '0', false) && !$this->user->hasLogin()): ?>
                             <input type="text" id="captcha" class="ci captcha-input" placeholder="验证码" autocomplete="off" inputmode="numeric">
                         <?php endif; ?>
-                        <button type="submit" class="submit" id="submit">提交评论</button>
+                        <button type="submit" class="submit" id="submit">提交</button>
                     </div>
                 </div>
             </form>
