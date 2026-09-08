@@ -245,21 +245,24 @@ function parseShortcodes($content)
             $content
         );
 
-        $pattern = '/<img.*?src=[\'\"](.*?)[\'\"].*?>/i';
+        $pattern = '/(<img.*?src=[\'\"](.*?)[\'\"].*?>)((?:\s|&nbsp;|&#160;)*<br\s*\/?>)?/i';
         $content = preg_replace_callback($pattern, function ($matches) {
-            if (strpos($matches[0], 'friends-card-avatar') !== false || strpos($matches[0], 'no-figcaption') !== false) {
-                return $matches[0];
+            $imgHtml = $matches[1];
+            $trailingBreak = isset($matches[3]) ? $matches[3] : '';
+
+            if (strpos($imgHtml, 'friends-card-avatar') !== false || strpos($imgHtml, 'no-figcaption') !== false) {
+                return $imgHtml . $trailingBreak;
             }
             $alt = '';
-            if (preg_match('/alt=[\'\"](.*?)[\'\"]/i', $matches[0], $alt_matches)) {
+            if (preg_match('/alt=[\'\"](.*?)[\'\"]/i', $imgHtml, $alt_matches)) {
                 $alt = $alt_matches[1];
             }
 
             if (!empty($alt)) {
-                return '<figure>' . $matches[0] . '<figcaption>' . $alt . '</figcaption></figure>';
+                return '<figure>' . $imgHtml . '<figcaption>' . $alt . '</figcaption></figure>';
             }
 
-            return $matches[0];
+            return $imgHtml . $trailingBreak;
         }, $content);
 
         if (!empty($pictureBlocks)) {
