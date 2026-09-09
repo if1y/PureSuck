@@ -632,8 +632,8 @@ p,
 pre,
 ul,
 .cp p {
-	margin-top: 0;
-	margin-bottom: 12px
+	margin-top: 0.6em;
+	margin-bottom: 0.6em
 }
 
 
@@ -1023,30 +1023,6 @@ body>.wrapper {
 	.post-comments .post-wrapper:before,
 	.post-footer .post-wrapper:before {
 		top: -32px
-	}
-
-	.avatar,
-	.form,
-	.list,
-	.meta,
-	.nav,
-	.post-body [data-js~=embed],
-	.post-body ol,
-	.post-body ul,
-	blockquote,
-	h1,
-	h2,
-	h3,
-	h4,
-	h5,
-	h6,
-	object,
-	ol,
-	p,
-	pre,
-	ul,
-	.cp p {
-		margin-bottom: 18px
 	}
 }
 
