@@ -814,7 +814,7 @@ ul,
 .post-body .post-content ul,
 .cp ol,
 .cp ul {
-    margin: 1em 0;
+    margin: .6em 0;
     padding-left: 1.5em;
     list-style-position: outside
 }
