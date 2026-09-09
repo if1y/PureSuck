@@ -1652,7 +1652,8 @@ a:hover {
 	margin-left: 5px
 }
 
-blockquote {
+/* 信息块：沿用原 blockquote 卡片风格 */
+.info-block {
 	border-radius: 0.75rem;
 	color: var(--text-color);
 	width: 100%;
@@ -1666,15 +1667,15 @@ blockquote {
 }
 
 /* 多段内容排版 */
-blockquote:has(p + p),
-blockquote:has(ul),
-blockquote:has(ol),
-blockquote:has(pre) {
+.info-block:has(p + p),
+.info-block:has(ul),
+.info-block:has(ol),
+.info-block:has(pre) {
 	padding-top: 1.75rem;
 	padding-bottom: 1.75rem
 }
 
-blockquote::before {
+.info-block::before {
 	content: '';
 	position: absolute;
 	left: 0.75rem;
@@ -1684,7 +1685,7 @@ blockquote::before {
 	background: radial-gradient(circle at 0.25rem 0.25rem, var(--themecolor) 1.5px, transparent 2px), radial-gradient(circle at 0.75rem 0.25rem, var(--themecolor) 1px, transparent 1.5px), radial-gradient(circle at 0.25rem 0.75rem, var(--themecolor) 1px, transparent 1.5px), radial-gradient(circle at 0.75rem 0.75rem, var(--themecolor) 1.5px, transparent 2px)
 }
 
-blockquote::after {
+.info-block::after {
 	content: '';
 	position: absolute;
 	left: 1.25rem;
@@ -1693,6 +1694,24 @@ blockquote::after {
 	height: calc(100% - 1.75rem);
 	background: linear-gradient(to bottom, var(--themecolor), transparent);
 	opacity: 0.3
+}
+
+/* 普通引用：左侧灰色竖条 + 轻微缩进 + 文本略微变灰 */
+blockquote {
+	margin: 0;
+	padding: 0.25rem 0 0.25rem 1rem;
+	border-left: 3.5px solid var(--border-color);
+	color: color-mix(in srgb, var(--text-color) 72%, transparent);
+	font-size: 0.95rem;
+	line-height: 1.75;
+}
+
+blockquote p {
+	margin: 0.25rem 0;
+}
+
+blockquote p:last-child {
+	margin-bottom: 0;
 }
 
 ol,

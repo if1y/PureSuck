@@ -36,7 +36,7 @@ function parseShortcodes($content)
 
     $content = preg_replace(
         [
-            '/\[\/(alert|window|friend-card|collapsible-panel|timeline|tabs)\](<br\s*\/?>)?/i',
+            '/\[\/(alert|info|window|friend-card|collapsible-panel|timeline|tabs)\](<br\s*\/?>)?/i',
             '/\[\/timeline-event\](<br\s*\/?>)?/i',
             '/\[\/tab\](<br\s*\/?>)?/i'
         ],
@@ -57,6 +57,15 @@ function parseShortcodes($content)
                 $type = $matches[1];
                 $text = $matches[2];
                 return "<div alert-type=\"$type\">$text</div>";
+            }
+        ],
+        [
+            // 信息块（沿用原 blockquote 卡片风格）
+            'check' => '[info',
+            'pattern' => '/\[info\](.*?)\[\/info\]/s',
+            'handler' => function ($matches) {
+                $text = preg_replace('/^<br\s*\/?>/i', '', $matches[1]);
+                return '<div class="info-block">' . $text . '</div>';
             }
         ],
         [
