@@ -1201,6 +1201,7 @@
 }
 
 .collapsible-details {
+    margin: 12px 0;
     padding: 0 24px;
     color: var(--text2-color);
     line-height: 1.75;

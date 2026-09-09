@@ -112,7 +112,10 @@ function parseShortcodes($content)
             'pattern' => '/\[collapsible-panel title="([^"]*)"\](.*?)\[\/collapsible-panel\]/s',
             'handler' => function ($matches) {
                 $title = htmlspecialchars($matches[1], ENT_QUOTES, 'UTF-8');
-                $text = preg_replace('/^<br\s*\/?>/', '', $matches[2]);
+                $text = preg_replace('/^<br\s*\/?>/i', '', $matches[2]);
+                $text = preg_replace('/\n/', '<br>', $text);
+                $text = '<p>' . $text . '</p>';
+                $text = preg_replace('/<p><\/p>/', '', $text);
                 return '<div class="collapsible-panel">'
                     . '<button class="collapsible-header">'
                     . $title
