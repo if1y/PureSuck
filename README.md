@@ -67,6 +67,12 @@ Pure 意指纯洁、干净，后者取自爱人 RuoSuck，希望这份干净的�
 [alert type="pink"]这是一个粉色警告。[/alert]
 ```
 五种颜色可选，在 type 中填写，效果图可以看上面合集，普通的灰色样式用自带的 blockquote 即可
+#### 提示框
+```
+[info]
+这是一个提示框。
+[/info]
+```
 #### 彩色信息窗
 ```
 [window type="red" title="信息窗口"]这是一个信息窗口。[/window]
@@ -96,7 +102,9 @@ Pure 意指纯洁、干净，后者取自爱人 RuoSuck，希望这份干净的�
 不可选择颜色，默认跟着主题强调色走的（在主题设置里切换），描述信息如果要换行请用`<br>`标签，描述信息尽量简短避免影响样式
 #### 折叠内容
 ```
-[collapsible-panel title="折叠面板标题"]这是面板的内容。[/collapsible-panel]
+[collapsible-panel title="折叠面板标题"]
+这是面板的内容。
+[/collapsible-panel]
 ```
 没有颜色选，灰色，用来折叠比较长的内容
 #### Tabs选项组
