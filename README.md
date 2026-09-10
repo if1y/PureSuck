@@ -60,11 +60,21 @@ Pure 意指纯洁、干净，后者取自爱人 RuoSuck，希望这份干净的�
 内置一些组件，使用短代码进行解析，使用格式如下
 #### 引用条
 ```
-[alert type="red"]这是一个红色警告。[/alert]
-[alert type="yellow"]这是一个黄色警告。[/alert]
-[alert type="blue"]这是一个蓝色警告。[/alert]
-[alert type="green"]这是一个绿色警告。[/alert]
-[alert type="pink"]这是一个粉色警告。[/alert]
+[alert type="red"]
+这是一个红色警告。
+[/alert]
+[alert type="yellow"]
+这是一个黄色警告。
+[/alert]
+[alert type="blue"]
+这是一个蓝色警告。
+[/alert]
+[alert type="green"]
+这是一个绿色警告。
+[/alert]
+[alert type="pink"]
+这是一个粉色警告。
+[/alert]
 ```
 五种颜色可选，在 type 中填写，效果图可以看上面合集，普通的灰色样式用自带的 blockquote 即可
 #### 提示框
@@ -75,10 +85,15 @@ Pure 意指纯洁、干净，后者取自爱人 RuoSuck，希望这份干净的�
 ```
 #### 彩色信息窗
 ```
-[window type="red" title="信息窗口"]这是一个信息窗口。[/window]
-[window type="yellow" title="警告窗口"]这是一个信息窗口。<br>这是一个信息窗口的第二行。[/window]
+[window type="red" title="信息窗口"]
+这是一个信息窗口。
+[/window]
+[window type="yellow" title="警告窗口"]
+这是一个信息窗口。
+这是一个信息窗口的第二行。
+[/window]
 ```
-同样五色可选，type 处填写五种颜色之一，在 title 处填写标题，注意内部如果要换行请用`<br>`标签
+同样五色可选，type 处填写五种颜色之一，在 title 处填写标题，~注意内部如果要换行请用`<br>`标签~
 #### GitHub 卡片
 ```
 [github url="https://github.com/MoXiaoXi233/PureSuck-theme"]
