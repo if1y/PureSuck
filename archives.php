@@ -27,10 +27,8 @@ $this->need('header.php');
 
             <section class="post-item post-body">
                 <div class="wrapper post-wrapper">
-                    <h1 class="post-title">
-                        <a href="<?php $this->permalink() ?>" title="<?php $this->title() ?>">
-                            <?php $this->title() ?>
-                        </a>
+                    <h1 class="post-title" title="<?php $this->title() ?>">
+                        <?php $this->title() ?>
                     </h1>
                     <div class="inner-post-wrapper">
                         <?php

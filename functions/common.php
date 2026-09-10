@@ -586,7 +586,7 @@ function themeConfig($form)
         ),
         '1',
         _t('标题下的装饰线条'),
-        _t('包括主标题的粗下划线、文内各级标题的波浪线，其中主标题有触摸反馈')
+        _t('控制文内各级标题（h1~h6）的波浪线装饰')
     );
     $form->addInput($postTitleAfter);
 

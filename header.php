@@ -75,7 +75,7 @@
 
     <!-- 标题装饰线条开关 -->
     <?php if ($this->options->postTitleAfter == '0'): ?>
-        <style>.post-title::after,.post-content h1::after,h2::after,h3::after,h4::after,h5::after,h6::after{display:none!important}</style>
+        <style>.post-content h1::after,.post-content h2::after,.post-content h3::after,.post-content h4::after,.post-content h5::after,.post-content h6::after{display:none!important}</style>
     <?php endif; ?>
 
     <!-- JS引入：按优先级分组加载（性能优化版） -->
