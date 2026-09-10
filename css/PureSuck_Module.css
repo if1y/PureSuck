@@ -602,7 +602,7 @@
     position: relative;
     display: block;
     padding: 18px 20px 20px;
-    margin: 24px 0;
+    margin: 12px 0;
     border-radius: 0.8rem;
     background-color: var(--card-color);
     border: 1px solid var(--border-color);
@@ -918,7 +918,7 @@
     position: relative;
     display: block;
     padding: 18px 20px 20px;
-    margin: 24px 0;
+    margin: 12px 0;
     border-radius: 0.85rem;
     background-color: var(--card-color);
     border: 1px solid var(--border-color);
