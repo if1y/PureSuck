@@ -38,15 +38,14 @@
                         </a>
                     </h1>
                     <div class="inner-post-wrapper">
-
                         <!-- 解析正文以及短代码 -->
                         <div class="post-content">
                             <!-- 优化去掉 meta 后的间距 -->
                             <p style="height:0.5em;margin:0;overflow:hidden;">&nbsp;</p>
                             <?= renderPostContent($this->content); ?>
                         </div>
-
                     </div>
+                    <br>
                 </div>
             </section>
 
