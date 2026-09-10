@@ -55,7 +55,7 @@ function parseShortcodes($content)
             'pattern' => '/\[alert type="([^"]*)"\](.*?)\[\/alert\]/s',
             'handler' => function ($matches) {
                 $type = $matches[1];
-                $text = $matches[2];
+                $text = preg_replace('/^<br\s*\/?>/i', '', $matches[2]);
                 return "<div alert-type=\"$type\">$text</div>";
             }
         ],
@@ -294,9 +294,10 @@ function parseAlerts($content)
         return $content;
     }
 
-    $content = preg_replace_callback('/<div alert-type="(.*?)">(.*?)<\/div>/', function ($matches) {
+    $content = preg_replace_callback('/<div alert-type="(.*?)">(.*?)<\/div>/s', function ($matches) {
         $type = $matches[1];
-        $innerContent = $matches[2];
+        $innerContent = preg_replace('/^(?:\s|<br\s*\/?>)+/i', '', $matches[2]);
+        $innerContent = preg_replace('/(?:\s|<br\s*\/?>)+$/i', '', $innerContent);
         $iconClass = 'icon-info-circled';
         switch ($type) {
             case 'green':
@@ -323,10 +324,11 @@ function parseWindows($content)
         return $content;
     }
 
-    $content = preg_replace_callback('/<div window-type="(.*?)" title="(.*?)">(.*?)<\/div>/', function ($matches) {
+    $content = preg_replace_callback('/<div window-type="(.*?)" title="(.*?)">(.*?)<\/div>/s', function ($matches) {
         $type = $matches[1];
         $title = $matches[2];
-        $innerContent = $matches[3];
+        $innerContent = preg_replace('/^(?:\s|<br\s*\/?>)+/i', '', $matches[3]);
+        $innerContent = preg_replace('/(?:\s|<br\s*\/?>)+$/i', '', $innerContent);
         return '<div class="window ' . $type . '"><div class="flex"><div class="window-prompt-wrap"><p class="window-prompt-heading">' . $title . '</p><div class="window-prompt-prompt"><p>' . $innerContent . '</p></div></div></div></div>';
     }, $content);
     return $content;
@@ -341,10 +343,11 @@ function parseTimeline($content)
     // Backward compatibility for previously rendered wrapper markup.
     $content = str_replace('<div id="timeline">', '<div class="timeline">', $content);
 
-    $content = preg_replace_callback('/<div timeline-event date="(.*?)" title="(.*?)">(.*?)<\/div>/', function ($matches) {
+    $content = preg_replace_callback('/<div timeline-event date="(.*?)" title="(.*?)">(.*?)<\/div>/s', function ($matches) {
         $date = $matches[1];
         $title = $matches[2];
-        $innerContent = $matches[3];
+        $innerContent = preg_replace('/^(?:\s|<br\s*\/?>)+/i', '', $matches[3]);
+        $innerContent = preg_replace('/(?:\s|<br\s*\/?>)+$/i', '', $innerContent);
         return '<div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-content"><div class="timeline-date">' . $date . '</div><div class="timeline-title">' . $title . '</div><div class="timeline-description">' . $innerContent . '</div></div></div>';
     }, $content);
     return $content;
